@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Vidal Design Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <style>
+        .cart-page {
+            padding: 8rem 0 4rem;
+            min-height: 60vh;
+        }
+        
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cart-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .cart-items {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr auto auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 100px;
+            height: 80px;
+            background: var(--gray-200);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 1.5rem;
+        }
+        
+        .cart-item-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .cart-item-info p {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .qty-btn {
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--gray-300);
+            background: white;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-fast);
+        }
+        
+        .qty-btn:hover {
+            background: var(--gray-100);
+        }
+        
+        .qty-value {
+            font-weight: 600;
+            min-width: 30px;
+            text-align: center;
+        }
+        
+        .cart-item-price {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .cart-item-remove {
+            color: var(--secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: var(--transition-fast);
+        }
+        
+        .cart-item-remove:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-empty {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .cart-empty i {
+            font-size: 4rem;
+            color: var(--gray-300);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cart-summary {
+            background: var(--gray-100);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            margin-bottom: 2rem;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .summary-row.total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            border-top: 2px solid var(--gray-300);
+            padding-top: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .cart-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-continue {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition-fast);
+        }
+        
+        .btn-continue:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-checkout {
+            flex: 2;
+            min-width: 300px;
+            padding: 1rem 2rem;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: var(--transition-fast);
+        }
+        
+        .btn-checkout:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+        
+        .cart-note {
+            background: var(--accent);
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+        
+        .cart-note p {
+            margin: 0;
+            color: var(--gray-800);
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 640px) {
+            .cart-item {
+                grid-template-columns: 80px 1fr;
+                gap: 1rem;
+            }
+            
+            .cart-item-quantity,
+            .cart-item-price {
+                grid-column: 2;
+                justify-self: start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: white; border-bottom: 1px solid var(--gray-200);">
+        <div class="container">
+            <div class="header-content" style="height: 70px;">
+                <a href="../index.html" class="logo">
+                    <div class="logo-placeholder" style="width: 150px; height: 50px; font-size: 0.7rem;">
+                        <i class="fas fa-paint-brush" style="font-size: 1.25rem;"></i>
+                        <span>SUA LOGO</span>
+                    </div>
+                </a>
+                <a href="../index.html" class="back-link" style="margin: 0;">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page">
+        <div class="container cart-container">
+            <div class="cart-header">
+                <span class="section-tag">Orçamento</span>
+                <h1 class="section-title">Seu Carrinho</h1>
+                <p class="section-subtitle">Revise seus itens e solicite um orçamento detalhado</p>
+            </div>
+            
+            <div class="cart-note">
+                <p><i class="fas fa-info-circle"></i> <strong>Importante:</strong> Os valores exibidos são estimados. O orçamento final será confirmado via WhatsApp após análise do arquivo de arte.</p>
+            </div>
+            
+            <div id="cartContent">
+                <!-- Content loaded by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('vidalCart')) || [];
+        
+        function renderCart() {
+            const container = document.getElementById('cartContent');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Seu carrinho está vazio</h3>
+                        <p>Adicione produtos para solicitar um orçamento.</p>
+                        <br>
+                        <a href="../index.html#produtos" class="btn btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            Ver Produtos
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+            
+            const itemsHtml = cart.map((item, index) => `
+                <div class="cart-item" data-index="${index}">
+                    <div class="cart-item-image">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div class="cart-item-info">
+                        <h3>${item.name}</h3>
+                        <p>${item.categoryLabel} • ${item.unit}</p>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="qty-btn" onclick="updateQty(${index}, -1)">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="qty-value">${item.quantity}</span>
+                        <button class="qty-btn" onclick="updateQty(${index}, 1)">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="cart-item-price">
+                        ${formatCurrency(item.basePrice * item.quantity)}
+                    </div>
+                    <div class="cart-item-remove" onclick="removeItem(${index})">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                </div>
+            `).join('');
+            
+            const total = cart.reduce((sum, item) => sum + (item.basePrice * item.quantity), 0);
+            
+            container.innerHTML = `
+                <div class="cart-items">
+                    ${itemsHtml}
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal (${cart.reduce((sum, i) => sum + i.quantity, 0)} itens)</span>
+                        <span>${formatCurrency(total)}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Frete</span>
+                        <span>A consultar</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total estimado</span>
+                        <span>${formatCurrency(total)}</span>
+                    </div>
+                </div>
+                
+                <div class="cart-actions">
+                    <a href="../index.html#produtos" class="btn-continue">
+                        <i class="fas fa-arrow-left"></i>
+                        Continuar Comprando
+                    </a>
+                    <button class="btn-checkout" onclick="sendCart()">
+                        <i class="fab fa-whatsapp"></i>
+                        Enviar Orçamento via WhatsApp
+                    </button>
+                </div>
+            `;
+        }
+        
+        function updateQty(index, change) {
+            const newQty = cart[index].quantity + change;
+            if (newQty < 1) {
+                removeItem(index);
+            } else {
+                cart[index].quantity = newQty;
+                saveCart();
+                renderCart();
+            }
+        }
+        
+        function removeItem(index) {
+            cart.splice(index, 1);
+            saveCart();
+            renderCart();
+        }
+        
+        function saveCart() {
+            localStorage.setItem('vidalCart', JSON.stringify(cart));
+        }
+        
+        function sendCart() {
+            if (cart.length === 0) return;
+            
+            let message = 'Olá! Gostaria de fazer um orçamento dos seguintes itens:\n\n';
+            
+            cart.forEach((item, idx) => {
+                message += `${idx + 1}. ${item.name}\n`;
+                message += `   Categoria: ${item.categoryLabel}\n`;
+                message += `   Quantidade: ${item.quantity} ${item.unit}\n`;
+                message += `   Valor estimado: ${formatCurrency(item.basePrice * item.quantity)}\n\n`;
+            });
+            
+            const total = cart.reduce((sum, item) => sum + (item.basePrice * item.quantity), 0);
+            message += `*Total estimado: ${formatCurrency(total)}*\n\n`;
+            message += 'Aguardo retorno com valores finais, prazo de entrega e informações sobre envio de arte. Obrigado!';
+            
+            const url = `https://wa.me/5511968649673?text=${encodeURIComponent(message)}`;
+            
+            // Track
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'begin_checkout', {
+                    'event_category': 'conversion',
+                    'value': total
+                });
+            }
+            
+            // Clear cart
+            cart = [];
+            saveCart();
+            
+            window.open(url, '_blank');
+            renderCart();
+        }
+        
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
+        }
+        
+        // Initialize
+        renderCart();
+    </script>
+</body>
+</html>
