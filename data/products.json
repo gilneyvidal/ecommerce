@@ -282,4 +282,21 @@
       "unit": "m²",
       "options": [
         {
-          "name": "Cor
+          "name": "Cor",
+          "choices": [
+            {"label": "Branco", "priceModifier": 0},
+            {"label": "Preto", "priceModifier": 0},
+            {"label": "Cores especiais", "priceModifier": 25.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "ACM 4mm",
+        "impressao": "Não aplicável",
+        "durabilidade": "Até 20 anos",
+        "prazo": "7 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Fachada em ACM."
+    }
+  ]
+}
