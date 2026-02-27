@@ -1,0 +1,285 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Adesivo Vinil Branco com Recorte",
+      "category": "adesivos",
+      "categoryLabel": "Adesivos",
+      "description": "Adesivo vinil branco de alta qualidade com recorte eletrônico. Disponível em brilho ou fosco, ideal para decoração e sinalização.",
+      "shortDescription": "Vinil personalizado com recorte de precisão",
+      "image": "placeholder",
+      "badge": "Mais Vendido",
+      "basePrice": 45.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Acabamento",
+          "choices": [
+            {"label": "Brilho", "priceModifier": 0},
+            {"label": "Fosco", "priceModifier": 5.00}
+          ]
+        },
+        {
+          "name": "Laminação",
+          "choices": [
+            {"label": "Sem laminação", "priceModifier": 0},
+            {"label": "Com laminação", "priceModifier": 15.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Vinil adesivo polimérico",
+        "impressao": "Digital de alta resolução",
+        "durabilidade": "Até 3 anos",
+        "prazo": "2 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Adesivo Vinil Branco com Recorte."
+    },
+    {
+      "id": 2,
+      "name": "Banner em Lona 440g",
+      "category": "banners",
+      "categoryLabel": "Banners",
+      "description": "Banner em lona de alta resistência, impressão digital em alta definição. Acabamento com ilhós e bastão opcional.",
+      "shortDescription": "Lona resistente para eventos e fachadas",
+      "image": "placeholder",
+      "badge": null,
+      "basePrice": 35.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Acabamento",
+          "choices": [
+            {"label": "Somente borda soldada", "priceModifier": 0},
+            {"label": "Com ilhós", "priceModifier": 5.00},
+            {"label": "Com ilhós e bastão", "priceModifier": 15.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Lona 440g frontlight",
+        "impressao": "Digital UV",
+        "durabilidade": "Até 2 anos",
+        "prazo": "3 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Banner em Lona 440g."
+    },
+    {
+      "id": 3,
+      "name": "Placa de PS 2mm",
+      "category": "sinalizacao",
+      "categoryLabel": "Sinalização",
+      "description": "Placa em poliestireno de 2mm, leve e resistente. Ideal para sinalização interna e eventos.",
+      "shortDescription": "Placa leve para sinalização interna",
+      "image": "placeholder",
+      "badge": "Promoção",
+      "basePrice": 55.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Acabamento",
+          "choices": [
+            {"label": "Corte reto", "priceModifier": 0},
+            {"label": "Corte especial", "priceModifier": 10.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "PS (poliestireno) 2mm",
+        "impressao": "UV direto",
+        "durabilidade": "Indefinida em ambiente interno",
+        "prazo": "2 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Placa de PS 2mm."
+    },
+    {
+      "id": 4,
+      "name": "Toldo Retrátil Articulado",
+      "category": "toldos",
+      "categoryLabel": "Toldos",
+      "description": "Toldo retrátil com braços articulados, lona acrílica de alta durabilidade. Estrutura em alumínio.",
+      "shortDescription": "Proteção solar com estilo e durabilidade",
+      "image": "placeholder",
+      "badge": null,
+      "basePrice": 450.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Lona",
+          "choices": [
+            {"label": "Standard", "priceModifier": 0},
+            {"label": "Premium acrílica", "priceModifier": 80.00}
+          ]
+        },
+        {
+          "name": "Motorização",
+          "choices": [
+            {"label": "Manual", "priceModifier": 0},
+            {"label": "Motorizado", "priceModifier": 350.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Alumínio e lona acrílica",
+        "impressao": "Não aplicável",
+        "durabilidade": "Até 10 anos",
+        "prazo": "7 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Toldo Retrátil Articulado."
+    },
+    {
+      "id": 5,
+      "name": "Letra Caixa em ACM",
+      "category": "fachadas",
+      "categoryLabel": "Fachadas",
+      "description": "Letra caixa fabricada em ACM (Alumínio Composto) com pintura automotiva. Alta durabilidade e acabamento premium.",
+      "shortDescription": "Letras 3D para fachadas comerciais",
+      "image": "placeholder",
+      "badge": "Premium",
+      "basePrice": 120.00,
+      "unit": "cm (altura)",
+      "options": [
+        {
+          "name": "Iluminação",
+          "choices": [
+            {"label": "Sem iluminação", "priceModifier": 0},
+            {"label": "Com LED frontal", "priceModifier": 45.00},
+            {"label": "Com LED halo", "priceModifier": 55.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "ACM 3mm",
+        "impressao": "Pintura automotiva",
+        "durabilidade": "Até 15 anos",
+        "prazo": "5 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Letra Caixa em ACM."
+    },
+    {
+      "id": 6,
+      "name": "Adesivo Perfurado (One Way)",
+      "category": "adesivos",
+      "categoryLabel": "Adesivos",
+      "description": "Adesivo microperfurado ideal para vitrines e veículos. Visibilidade externa com privacidade interna.",
+      "shortDescription": "Visibilidade externa, privacidade interna",
+      "image": "placeholder",
+      "badge": null,
+      "basePrice": 65.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Laminação",
+          "choices": [
+            {"label": "Sem laminação", "priceModifier": 0},
+            {"label": "Com laminação UV", "priceModifier": 20.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Vinil perfurado 50/50",
+        "impressao": "Digital de alta resolução",
+        "durabilidade": "Até 2 anos",
+        "prazo": "2 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Adesivo Perfurado."
+    },
+    {
+      "id": 7,
+      "name": "Backdrop em Lona 440g",
+      "category": "banners",
+      "categoryLabel": "Banners",
+      "description": "Backdrop completo para eventos, com estrutura desmontável e lona impressa em alta definição.",
+      "shortDescription": "Estrutura completa para eventos",
+      "image": "placeholder",
+      "badge": null,
+      "basePrice": 280.00,
+      "unit": "unidade (3x2m)",
+      "options": [
+        {
+          "name": "Tamanho",
+          "choices": [
+            {"label": "3x2 metros", "priceModifier": 0},
+            {"label": "4x3 metros", "priceModifier": 150.00},
+            {"label": "6x3 metros", "priceModifier": 350.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Lona 440g + estrutura tubo",
+        "impressao": "Digital UV",
+        "durabilidade": "Reutilizável",
+        "prazo": "3 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Backdrop em Lona."
+    },
+    {
+      "id": 8,
+      "name": "Totem de PS 5mm",
+      "category": "sinalizacao",
+      "categoryLabel": "Sinalização",
+      "description": "Totem autoexplicativo em poliestireno de 5mm, resistente e leve. Ideal para eventos e sinalização temporária.",
+      "shortDescription": "Sinalização vertical resistente",
+      "image": "placeholder",
+      "badge": null,
+      "basePrice": 85.00,
+      "unit": "unidade (80x180cm)",
+      "options": [
+        {
+          "name": "Base",
+          "choices": [
+            {"label": "Sem base", "priceModifier": 0},
+            {"label": "Com base de apoio", "priceModifier": 25.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "PS 5mm",
+        "impressao": "UV direto",
+        "durabilidade": "Indefinida em ambiente interno",
+        "prazo": "2 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Totem de PS."
+    },
+    {
+      "id": 9,
+      "name": "Toldo Fixo em Lona",
+      "category": "toldos",
+      "categoryLabel": "Toldos",
+      "description": "Toldo fixo com estrutura metálica pintada e lona acrílica. Proteção permanente contra sol e chuva.",
+      "shortDescription": "Proteção permanente para sua fachada",
+      "image": "placeholder",
+      "badge": "Econômico",
+      "basePrice": 320.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Lona",
+          "choices": [
+            {"label": "Standard", "priceModifier": 0},
+            {"label": "Premium acrílica", "priceModifier": 60.00}
+          ]
+        }
+      ],
+      "specs": {
+        "material": "Aço galvanizado + lona",
+        "impressao": "Não aplicável",
+        "durabilidade": "Até 8 anos",
+        "prazo": "5 dias úteis"
+      },
+      "whatsappMessage": "Olá! Gostaria de fazer um orçamento de Toldo Fixo em Lona."
+    },
+    {
+      "id": 10,
+      "name": "Fachada em ACM 4mm",
+      "category": "fachadas",
+      "categoryLabel": "Fachadas",
+      "description": "Revestimento de fachada completo em ACM 4mm, com estrutura de fixação e acabamento profissional.",
+      "shortDescription": "Revestimento completo para sua fachada",
+      "image": "placeholder",
+      "badge": "Alta Qualidade",
+      "basePrice": 180.00,
+      "unit": "m²",
+      "options": [
+        {
+          "name": "Cor
