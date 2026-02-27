@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto - Vidal Design Solutions</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <style>
+        .product-detail {
+            padding: 8rem 0 4rem;
+        }
+        
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .product-main-image {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: var(--gray-200);
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            border: 3px dashed var(--gray-300);
+        }
+        
+        .product-main-image i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+        
+        .product-info-detail h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .product-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .product-meta span {
+            padding: 0.5rem 1rem;
+            background: var(--gray-100);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            color: var(--gray-600);
+        }
+        
+        .product-price-detail {
+            background: var(--gray-100);
+            padding: 1.5rem;
+            border-radius: var(--radius-xl);
+            margin-bottom: 2rem;
+        }
+        
+        .price-display {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .price-unit {
+            font-size: 1rem;
+            color: var(--gray-600);
+            font-weight: 400;
+        }
+        
+        .product-options {
+            margin-bottom: 2rem;
+        }
+        
+        .option-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .option-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark);
+        }
+        
+        .option-buttons {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        
+        .option-btn {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid var(--gray-300);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+        }
+        
+        .option-btn:hover,
+        .option-btn.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-whatsapp-large {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.25rem 2rem;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: var(--transition-fast);
+        }
+        
+        .btn-whatsapp-large:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+        
+        .product-specs {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--gray-200);
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .spec-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .product-description-full {
+            margin-top: 2rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+        
+        .back-link:hover {
+            gap: 0.75rem;
+        }
+        
+        @media (max-width: 968px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-gallery {
+                position: relative;
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Simple Header -->
+    <header class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: white; border-bottom: 1px solid var(--gray-200);">
+        <div class="container">
+            <div class="header-content" style="height: 70px;">
+                <a href="../index.html" class="logo">
+                    <div class="logo-placeholder" style="width: 150px; height: 50px; font-size: 0.7rem;">
+                        <i class="fas fa-paint-brush" style="font-size: 1.25rem;"></i>
+                        <span>SUA LOGO</span>
+                    </div>
+                </a>
+                <a href="../index.html" class="back-link" style="margin: 0;">
+                    <i class="fas fa-arrow-left"></i>
+                    Voltar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="product-detail">
+        <div class="container">
+            <a href="../index.html#produtos" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Voltar para produtos
+            </a>
+            
+            <div class="product-detail-grid" id="productDetail">
+                <!-- Content loaded by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Load product data
+        const product = JSON.parse(sessionStorage.getItem('currentProduct'));
+        
+        if (!product) {
+            window.location.href = '../index.html';
+        }
+        
+        // Render product detail
+        function renderProductDetail() {
+            const container = document.getElementById('productDetail');
+            
+            // Calculate current price based on selections
+            let currentPrice = product.basePrice;
+            const selectedOptions = {};
+            
+            const optionsHtml = product.options ? product.options.map((opt, idx) => `
+                <div class="option-group">
+                    <label>${opt.name}</label>
+                    <div class="option-buttons" data-option="${idx}">
+                        ${opt.choices.map((choice, cIdx) => `
+                            <button class="option-btn ${cIdx === 0 ? 'active' : ''}" 
+                                    data-price="${choice.priceModifier}"
+                                    data-choice="${cIdx}">
+                                ${choice.label}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('') : '';
+            
+            const specsHtml = Object.entries(product.specs).map(([key, value]) => `
+                <div class="spec-item">
+                    <span class="spec-label">${key}</span>
+                    <span class="spec-value">${value}</span>
+                </div>
+            `).join('');
+            
+            container.innerHTML = `
+                <div class="product-gallery">
+                    <div class="product-main-image">
+                        <i class="fas fa-image"></i>
+                        <span>IMAGEM DO PRODUTO<br>${product.name}</span>
+                    </div>
+                </div>
+                
+                <div class="product-info-detail">
+                    <div class="product-meta">
+                        <span><i class="fas fa-tag"></i> ${product.categoryLabel}</span>
+                        <span><i class="fas fa-clock"></i> ${product.specs.prazo}</span>
+                    </div>
+                    
+                    <h1>${product.name}</h1>
+                    
+                    <p class="product-description-full">${product.description}</p>
+                    
+                    <div class="product-price-detail">
+                        <div class="price-display">
+                            ${formatCurrency(product.basePrice)}
+                            <span class="price-unit">/${product.unit}</span>
+                        </div>
+                        <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 0.5rem;">
+                            * Preço base. Opções adicionais podem alterar o valor final.
+                        </p>
+                    </div>
+                    
+                    <div class="product-options" id="productOptions">
+                        ${optionsHtml}
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn-whatsapp-large" onclick="sendToWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            Solicitar Orçamento via WhatsApp
+                        </button>
+                    </div>
+                    
+                    <div class="product-specs">
+                        <h3>Ficha Técnica</h3>
+                        <div class="specs-grid">
+                            ${specsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add option button handlers
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const group = e.target.closest('.option-buttons');
+                    group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    updatePrice();
+                });
+            });
+        }
+        
+        function updatePrice() {
+            let total = product.basePrice;
+            document.querySelectorAll('.option-buttons').forEach(group => {
+                const activeBtn = group.querySelector('.option-btn.active');
+                if (activeBtn) {
+                    total += parseFloat(activeBtn.getAttribute('data-price'));
+                }
+            });
+            
+            document.querySelector('.price-display').innerHTML = 
+                `${formatCurrency(total)}<span class="price-unit">/${product.unit}</span>`;
+        }
+        
+        function sendToWhatsApp() {
+            let message = product.whatsappMessage + '\n\n';
+            
+            // Add selected options
+            const options = [];
+            document.querySelectorAll('.option-group').forEach(group => {
+                const label = group.querySelector('label').textContent;
+                const selected = group.querySelector('.option-btn.active').textContent.trim();
+                options.push(`${label}: ${selected}`);
+            });
+            
+            if (options.length > 0) {
+                message += 'Opções selecionadas:\n' + options.join('\n') + '\n\n';
+            }
+            
+            message += 'Por favor, enviar valores finais e prazo de entrega.';
+            
+            const url = `https://wa.me/5511968649673?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+            
+            // Track
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'conversion',
+                    'event_label': product.name
+                });
+            }
+        }
+        
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
+        }
+        
+        // Initialize
+        renderProductDetail();
+        
+        // Update page title
+        document.title = `${product.name} - Vidal Design Solutions`;
+    </script>
+</body>
+</html>
