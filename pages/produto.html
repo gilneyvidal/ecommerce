@@ -63,7 +63,6 @@
         .calc-input-group input:focus { outline: none; border-color: var(--primary); }
         .area-display { margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600); padding-top: 1rem; border-top: 1px dashed #bbf7d0; }
         .area-display strong { color: var(--primary); }
-        .area-warning { color: var(--secondary); font-size: 0.8rem; display: block; margin-top: 0.25rem; font-weight: 600; }
 
         @media (max-width: 968px) {
             .product-detail-grid { grid-template-columns: 1fr; }
@@ -139,7 +138,7 @@
                 </div>
             `).join('') : '';
 
-            // HTML da Imagem (Tratamento para quando tivermos imagens reais)
+            // HTML da Imagem
             const imageHtml = product.image && product.image !== 'placeholder' ? 
                 `<img src="../assets/images/produtos/${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                  <div style="display:none; flex-direction:column; align-items:center;">
@@ -147,7 +146,7 @@
                  </div>` : 
                 `<i class="fas fa-image"></i><span>IMAGEM DO PRODUTO<br>${product.name}</span>`;
             
-            // HTML da Calculadora (Regra do 0.5m2)
+            // HTML da Calculadora (Limpa visualmente, cálculo oculto)
             let calculatorHtml = '';
             if (product.calculator) {
                 calculatorHtml = `
@@ -169,9 +168,6 @@
                         </div>
                         <div class="area-display">
                             Área total do pedido: <strong id="calcAreaDisplay">1.00 m²</strong>
-                            <span class="area-warning" id="calcAreaWarning" style="display:none;">
-                                *Aplicada regra de cobrança mínima de ${product.minArea}m²
-                            </span>
                         </div>
                     </div>
                 `;
@@ -270,29 +266,26 @@
                 // Converte de cm para m² e multiplica pela quantidade
                 let totalArea = (width / 100) * (height / 100) * qty;
                 
-                // Aplica a Regra: Se área total < 0.5, cobra-se 0.5
+                // Atualiza APENAS o texto visual da área com o valor real
+                document.getElementById('calcAreaDisplay').innerText = totalArea.toFixed(2) + " m²";
+
+                // Nos bastidores, aplica a Regra do Mínimo: Se área total for < mínimo, cobra-se o mínimo
                 let effectiveArea = totalArea;
                 if (totalArea > 0 && totalArea < product.minArea) {
                     effectiveArea = product.minArea;
-                    document.getElementById('calcAreaWarning').style.display = 'block';
-                } else {
-                    document.getElementById('calcAreaWarning').style.display = 'none';
                 }
                 
-                // Atualiza o texto visual de área
-                document.getElementById('calcAreaDisplay').innerText = totalArea.toFixed(2) + " m²";
-                
-                // O Preço é a área efetiva (cobrada) x valor do M2
+                // O Preço final é a área efetiva (cobrada) x valor do M2
                 finalPrice = effectiveArea * basePricePerM2;
                 
-                // Salva info para o WhatsApp
+                // Salva info para o WhatsApp com o detalhamento
                 windowAreaInfo = `\nMedidas: ${width}cm x ${height}cm\nQuantidade: ${qty}\nÁrea Total: ${totalArea.toFixed(2)}m²`;
             }
             
             // Soma as taxas fixas no final do pedido (Ex: + R$50 da Arte)
             finalPrice += fixedAdditions;
             
-            // Atualiza a tela
+            // Atualiza a tela com o preço final calculado
             document.querySelector('.price-display').innerHTML = 
                 `${formatCurrency(finalPrice)}<span class="price-unit">${product.calculator ? ' (Total estimado)' : '/' + product.unit}</span>`;
             
