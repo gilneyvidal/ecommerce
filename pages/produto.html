@@ -21,226 +21,53 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <style>
-        .product-detail {
-            padding: 8rem 0 4rem;
-        }
-        
-        .product-detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        
-        .product-gallery {
-            position: sticky;
-            top: 100px;
-        }
-        
-        .product-main-image {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background: var(--gray-200);
-            border-radius: var(--radius-xl);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-500);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            border: 3px dashed var(--gray-300);
-        }
-        
-        .product-main-image i {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.5;
-        }
-        
-        .product-info-detail h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-        
-        .product-meta {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .product-meta span {
-            padding: 0.5rem 1rem;
-            background: var(--gray-100);
-            border-radius: var(--radius-full);
-            font-size: 0.875rem;
-            color: var(--gray-600);
-        }
-        
-        .product-price-detail {
-            background: var(--gray-100);
-            padding: 1.5rem;
-            border-radius: var(--radius-xl);
-            margin-bottom: 2rem;
-        }
-        
-        .price-display {
-            font-family: var(--font-heading);
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        
-        .price-unit {
-            font-size: 1rem;
-            color: var(--gray-600);
-            font-weight: 400;
-        }
-        
-        .product-options {
-            margin-bottom: 2rem;
-        }
-        
-        .option-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .option-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
-        }
-        
-        .option-buttons {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-        
-        .option-btn {
-            padding: 0.75rem 1.25rem;
-            border: 2px solid var(--gray-300);
-            background: var(--white);
-            border-radius: var(--radius-lg);
-            cursor: pointer;
-            transition: var(--transition-fast);
-            font-family: var(--font-body);
-            font-size: 0.9rem;
-        }
-        
-        .option-btn:hover,
-        .option-btn.active {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: var(--white);
-        }
-        
-        .product-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-whatsapp-large {
-            flex: 1;
-            min-width: 250px;
-            padding: 1.25rem 2rem;
-            background: #25d366;
-            color: white;
-            border: none;
-            border-radius: var(--radius-lg);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: var(--transition-fast);
-        }
-        
-        .btn-whatsapp-large:hover {
-            background: #128c7e;
-            transform: translateY(-2px);
-        }
-        
-        .product-specs {
-            margin-top: 3rem;
-            padding-top: 3rem;
-            border-top: 2px solid var(--gray-200);
-        }
-        
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .spec-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .spec-label {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        
-        .spec-value {
-            font-weight: 600;
-            color: var(--dark);
-        }
-        
-        .product-description-full {
-            margin-top: 2rem;
-            line-height: 1.8;
-            color: var(--gray-700);
-        }
-        
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-        
-        .back-link:hover {
-            gap: 0.75rem;
-        }
+        .product-detail { padding: 8rem 0 4rem; }
+        .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .product-gallery { position: sticky; top: 100px; }
+        .product-main-image { width: 100%; aspect-ratio: 4/3; background: var(--gray-200); border-radius: var(--radius-xl); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--gray-500); font-size: 1.25rem; margin-bottom: 1rem; border: 3px dashed var(--gray-300); overflow: hidden; }
+        .product-main-image i { font-size: 4rem; margin-bottom: 1rem; opacity: 0.5; }
+        .product-main-image img { width: 100%; height: 100%; object-fit: cover; }
+        .product-info-detail h1 { font-size: 2rem; margin-bottom: 1rem; color: var(--dark); }
+        .product-meta { display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .product-meta span { padding: 0.5rem 1rem; background: var(--gray-100); border-radius: var(--radius-full); font-size: 0.875rem; color: var(--gray-600); }
+        .product-price-detail { background: var(--gray-100); padding: 1.5rem; border-radius: var(--radius-xl); margin-bottom: 2rem; }
+        .price-display { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 800; color: var(--primary); }
+        .price-unit { font-size: 1rem; color: var(--gray-600); font-weight: 400; }
+        .product-options { margin-bottom: 2rem; }
+        .option-group { margin-bottom: 1.5rem; }
+        .option-group label { display: block; font-weight: 600; margin-bottom: 0.75rem; color: var(--dark); }
+        .option-buttons { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .option-btn { padding: 0.75rem 1.25rem; border: 2px solid var(--gray-300); background: var(--white); border-radius: var(--radius-lg); cursor: pointer; transition: var(--transition-fast); font-family: var(--font-body); font-size: 0.9rem; }
+        .option-btn:hover, .option-btn.active { border-color: var(--primary); background: var(--primary); color: var(--white); }
+        .product-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-whatsapp-large { flex: 1; min-width: 250px; padding: 1.25rem 2rem; background: #25d366; color: white; border: none; border-radius: var(--radius-lg); font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.75rem; transition: var(--transition-fast); }
+        .btn-whatsapp-large:hover { background: #128c7e; transform: translateY(-2px); }
+        .product-specs { margin-top: 3rem; padding-top: 3rem; border-top: 2px solid var(--gray-200); }
+        .specs-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+        .spec-item { display: flex; flex-direction: column; gap: 0.5rem; }
+        .spec-label { font-size: 0.875rem; color: var(--gray-600); text-transform: uppercase; letter-spacing: 0.05em; }
+        .spec-value { font-weight: 600; color: var(--dark); }
+        .product-description-full { margin-top: 2rem; line-height: 1.8; color: var(--gray-700); }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-weight: 600; margin-bottom: 2rem; }
+        .back-link:hover { gap: 0.75rem; }
         
         /* Logo Styles */
-        .logo-real {
-            display: flex;
-            align-items: center;
-            height: 50px;
-        }
+        .logo-real { display: flex; align-items: center; height: 50px; }
+        .logo-real img { height: 100%; width: auto; max-width: 150px; object-fit: contain; }
         
-        .logo-real img {
-            height: 100%;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
-        }
-        
+        /* Calculator Styles */
+        .calculator-box { background: #f0fdf4; border: 1px solid #bbf7d0; padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1.5rem; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .calc-input-group label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--dark); margin-bottom: 0.5rem; }
+        .calc-input-group input { width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300); border-radius: var(--radius-md); font-family: var(--font-body); }
+        .calc-input-group input:focus { outline: none; border-color: var(--primary); }
+        .area-display { margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600); padding-top: 1rem; border-top: 1px dashed #bbf7d0; }
+        .area-display strong { color: var(--primary); }
+        .area-warning { color: var(--secondary); font-size: 0.8rem; display: block; margin-top: 0.25rem; font-weight: 600; }
+
         @media (max-width: 968px) {
-            .product-detail-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-gallery {
-                position: relative;
-                top: 0;
-            }
+            .product-detail-grid { grid-template-columns: 1fr; }
+            .product-gallery { position: relative; top: 0; }
         }
     </style>
 </head>
@@ -250,11 +77,10 @@
         <div class="container">
             <div class="header-content" style="height: 70px;">
                 <a href="../index.html" class="logo-real">
-                    <img src="../logo.png" alt="Vidal Design Solutions - Logo">
+                    <img src="../logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 <a href="../index.html" class="back-link" style="margin: 0;">
-                    <i class="fas fa-arrow-left"></i>
-                    Voltar
+                    <i class="fas fa-arrow-left"></i> Voltar
                 </a>
             </div>
         </div>
@@ -263,8 +89,7 @@
     <main class="product-detail">
         <div class="container">
             <a href="../index.html#produtos" class="back-link">
-                <i class="fas fa-arrow-left"></i>
-                Voltar para produtos
+                <i class="fas fa-arrow-left"></i> Voltar para produtos
             </a>
             
             <div class="product-detail-grid" id="productDetail">
@@ -274,21 +99,22 @@
     </main>
 
     <script>
-        // Load product data
+        // Variáveis globais para armazenar os dados calculados e enviar pro WhatsApp
+        let windowFinalPrice = 0;
+        let windowAreaInfo = "";
+
+        // Carrega dados do produto
         const product = JSON.parse(sessionStorage.getItem('currentProduct'));
         
         if (!product) {
             window.location.href = '../index.html';
         }
         
-        // Render product detail
+        // Renderiza detalhes do produto
         function renderProductDetail() {
             const container = document.getElementById('productDetail');
             
-            // Calculate current price based on selections
-            let currentPrice = product.basePrice;
-            const selectedOptions = {};
-            
+            // HTML das Opções
             const optionsHtml = product.options ? product.options.map((opt, idx) => `
                 <div class="option-group">
                     <label>${opt.name}</label>
@@ -296,6 +122,7 @@
                         ${opt.choices.map((choice, cIdx) => `
                             <button class="option-btn ${cIdx === 0 ? 'active' : ''}" 
                                     data-price="${choice.priceModifier}"
+                                    data-fixed="${choice.isFixed ? 'true' : 'false'}"
                                     data-choice="${cIdx}">
                                 ${choice.label}
                             </button>
@@ -304,49 +131,86 @@
                 </div>
             `).join('') : '';
             
-            const specsHtml = Object.entries(product.specs).map(([key, value]) => `
+            // HTML da Ficha Técnica
+            const specsHtml = product.specs ? Object.entries(product.specs).map(([key, value]) => `
                 <div class="spec-item">
                     <span class="spec-label">${key}</span>
                     <span class="spec-value">${value}</span>
                 </div>
-            `).join('');
+            `).join('') : '';
+
+            // HTML da Imagem (Tratamento para quando tivermos imagens reais)
+            const imageHtml = product.image && product.image !== 'placeholder' ? 
+                `<img src="../assets/images/produtos/${product.image}" alt="${product.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                 <div style="display:none; flex-direction:column; align-items:center;">
+                    <i class="fas fa-image"></i><span>IMAGEM<br>${product.name}</span>
+                 </div>` : 
+                `<i class="fas fa-image"></i><span>IMAGEM DO PRODUTO<br>${product.name}</span>`;
+            
+            // HTML da Calculadora (Regra do 0.5m2)
+            let calculatorHtml = '';
+            if (product.calculator) {
+                calculatorHtml = `
+                    <div class="calculator-box">
+                        <h3 style="margin-bottom: 1rem; color: var(--dark); font-size: 1.1rem;"><i class="fas fa-ruler-combined"></i> Medidas do Material</h3>
+                        <div class="calc-grid">
+                            <div class="calc-input-group">
+                                <label>Largura (cm)</label>
+                                <input type="number" id="calcWidth" value="100" min="1" oninput="updatePrice()">
+                            </div>
+                            <div class="calc-input-group">
+                                <label>Altura (cm)</label>
+                                <input type="number" id="calcHeight" value="100" min="1" oninput="updatePrice()">
+                            </div>
+                        </div>
+                        <div class="calc-input-group">
+                            <label>Quantidade de unidades</label>
+                            <input type="number" id="calcQty" value="1" min="1" oninput="updatePrice()">
+                        </div>
+                        <div class="area-display">
+                            Área total do pedido: <strong id="calcAreaDisplay">1.00 m²</strong>
+                            <span class="area-warning" id="calcAreaWarning" style="display:none;">
+                                *Aplicada regra de cobrança mínima de ${product.minArea}m²
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
             
             container.innerHTML = `
                 <div class="product-gallery">
                     <div class="product-main-image">
-                        <i class="fas fa-image"></i>
-                        <span>IMAGEM DO PRODUTO<br>${product.name}</span>
+                        ${imageHtml}
                     </div>
                 </div>
                 
                 <div class="product-info-detail">
                     <div class="product-meta">
                         <span><i class="fas fa-tag"></i> ${product.categoryLabel}</span>
-                        <span><i class="fas fa-clock"></i> ${product.specs.prazo}</span>
                     </div>
                     
                     <h1>${product.name}</h1>
                     
                     <p class="product-description-full">${product.description}</p>
                     
-                    <div class="product-price-detail">
-                        <div class="price-display">
-                            ${formatCurrency(product.basePrice)}
-                            <span class="price-unit">/${product.unit}</span>
-                        </div>
-                        <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 0.5rem;">
-                            * Preço base. Opções adicionais podem alterar o valor final.
-                        </p>
-                    </div>
-                    
+                    ${calculatorHtml}
+
                     <div class="product-options" id="productOptions">
                         ${optionsHtml}
+                    </div>
+
+                    <div class="product-price-detail">
+                        <div class="price-display">
+                            <!-- Preço será injetado aqui -->
+                        </div>
+                        <p style="color: var(--gray-600); font-size: 0.9rem; margin-top: 0.5rem;">
+                            * Valores estimados. O orçamento final será confirmado no WhatsApp.
+                        </p>
                     </div>
                     
                     <div class="product-actions">
                         <button class="btn-whatsapp-large" onclick="sendToWhatsApp()">
-                            <i class="fab fa-whatsapp"></i>
-                            Solicitar Orçamento via WhatsApp
+                            <i class="fab fa-whatsapp"></i> Solicitar Orçamento via WhatsApp
                         </button>
                     </div>
                     
@@ -359,7 +223,7 @@
                 </div>
             `;
             
-            // Add option button handlers
+            // Adiciona evento de clique nos botões de opções
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const group = e.target.closest('.option-buttons');
@@ -368,61 +232,106 @@
                     updatePrice();
                 });
             });
+
+            // Faz o cálculo inicial assim que a página carrega
+            updatePrice();
         }
         
         function updatePrice() {
-            let total = product.basePrice;
+            let basePricePerM2 = product.basePrice;
+            let fixedAdditions = 0;
+            
+            // Verifica os botões de opção selecionados
             document.querySelectorAll('.option-buttons').forEach(group => {
                 const activeBtn = group.querySelector('.option-btn.active');
                 if (activeBtn) {
-                    total += parseFloat(activeBtn.getAttribute('data-price'));
+                    const priceMod = parseFloat(activeBtn.getAttribute('data-price') || 0);
+                    const isFixed = activeBtn.getAttribute('data-fixed') === 'true';
+                    
+                    // Se for taxa fixa (Ex: Arte R$50), separa para somar só no final.
+                    if (isFixed) {
+                        fixedAdditions += priceMod;
+                    } else {
+                        // Se não for taxa fixa (Ex: Impressão Premium R$20), soma no valor do m2
+                        basePricePerM2 += priceMod;
+                    }
                 }
             });
             
+            let finalPrice = basePricePerM2;
+            windowAreaInfo = "";
+            
+            // Lógica da Calculadora
+            if (product.calculator) {
+                const width = parseFloat(document.getElementById('calcWidth').value) || 0;
+                const height = parseFloat(document.getElementById('calcHeight').value) || 0;
+                const qty = parseInt(document.getElementById('calcQty').value) || 1;
+                
+                // Converte de cm para m² e multiplica pela quantidade
+                let totalArea = (width / 100) * (height / 100) * qty;
+                
+                // Aplica a Regra: Se área total < 0.5, cobra-se 0.5
+                let effectiveArea = totalArea;
+                if (totalArea > 0 && totalArea < product.minArea) {
+                    effectiveArea = product.minArea;
+                    document.getElementById('calcAreaWarning').style.display = 'block';
+                } else {
+                    document.getElementById('calcAreaWarning').style.display = 'none';
+                }
+                
+                // Atualiza o texto visual de área
+                document.getElementById('calcAreaDisplay').innerText = totalArea.toFixed(2) + " m²";
+                
+                // O Preço é a área efetiva (cobrada) x valor do M2
+                finalPrice = effectiveArea * basePricePerM2;
+                
+                // Salva info para o WhatsApp
+                windowAreaInfo = `\nMedidas: ${width}cm x ${height}cm\nQuantidade: ${qty}\nÁrea Total: ${totalArea.toFixed(2)}m²`;
+            }
+            
+            // Soma as taxas fixas no final do pedido (Ex: + R$50 da Arte)
+            finalPrice += fixedAdditions;
+            
+            // Atualiza a tela
             document.querySelector('.price-display').innerHTML = 
-                `${formatCurrency(total)}<span class="price-unit">/${product.unit}</span>`;
+                `${formatCurrency(finalPrice)}<span class="price-unit">${product.calculator ? ' (Total estimado)' : '/' + product.unit}</span>`;
+            
+            windowFinalPrice = finalPrice;
         }
         
         function sendToWhatsApp() {
             let message = product.whatsappMessage + '\n\n';
             
-            // Add selected options
+            // Adiciona informações de Medidas
+            if (windowAreaInfo) {
+                message += '*Especificações:*' + windowAreaInfo + '\n\n';
+            }
+            
+            // Adiciona as opções selecionadas
             const options = [];
             document.querySelectorAll('.option-group').forEach(group => {
                 const label = group.querySelector('label').textContent;
                 const selected = group.querySelector('.option-btn.active').textContent.trim();
-                options.push(`${label}: ${selected}`);
+                options.push(`- ${label}: ${selected}`);
             });
             
             if (options.length > 0) {
-                message += 'Opções selecionadas:\n' + options.join('\n') + '\n\n';
+                message += '*Opções Escolhidas:*\n' + options.join('\n') + '\n\n';
             }
             
-            message += 'Por favor, enviar valores finais e prazo de entrega.';
+            message += `*Valor Estimado:* ${formatCurrency(windowFinalPrice)}\n\n`;
+            message += 'Por favor, como faço para enviar meu arquivo de arte e confirmar o pedido?';
             
             const url = `https://wa.me/5511968649673?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
-            
-            // Track
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'conversion',
-                    'event_label': product.name
-                });
-            }
         }
         
         function formatCurrency(value) {
-            return new Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-            }).format(value);
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
         }
         
-        // Initialize
+        // Inicia tudo
         renderProductDetail();
-        
-        // Update page title
         document.title = `${product.name} - Vidal Design Solutions`;
     </script>
 </body>
