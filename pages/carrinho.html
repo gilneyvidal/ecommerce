@@ -17,7 +17,23 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <style>
-        /* Estilos específicos e otimizados para a tela de conversão (Checkout) */
+        /* ==========================================
+           CORREÇÃO DA LOGO GIGANTE
+           ========================================== */
+        .logo-header {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .logo-header img {
+            height: 100%;
+            width: auto;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        /* Estilos específicos para a tela de conversão */
         body { 
             background-color: var(--gray-100); 
         }
@@ -148,7 +164,6 @@
             transform: translateX(-5px);
         }
         
-        /* Mobile adjustments */
         @media (max-width: 768px) {
             .cart-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .cart-actions { width: 100%; justify-content: space-between; }
@@ -179,8 +194,7 @@
                 <span id="cartItemCount" style="color: var(--gray-600); font-weight: 600; background: var(--gray-100); padding: 0.25rem 0.75rem; border-radius: 1rem;">0 itens</span>
             </div>
             
-            <div id="cartItemsContainer">
-                </div>
+            <div id="cartItemsContainer"></div>
             
             <div class="cart-summary" id="cartSummary" style="display: none;">
                 <div class="cart-total">
@@ -198,20 +212,16 @@
 
     <script src="../assets/js/cart.js"></script>
     <script>
-        // Lógica de Programação: Função de Renderização UI
-        
         function formatCurrencyUI(value) {
             return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
         }
 
-        // Esta é a função que o cart.js tenta chamar nas linhas 45 e 58
         function renderCartPage() {
             const container = document.getElementById('cartItemsContainer');
             const summary = document.getElementById('cartSummary');
             const countBadge = document.getElementById('cartItemCount');
             const totalValue = document.getElementById('cartTotalValue');
             
-            // A variável global 'cart' é importada do cart.js
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="empty-cart">
@@ -234,7 +244,7 @@
                 total += item.basePrice * item.quantity;
                 itemsCount += item.quantity;
                 
-                // Tratamento lógico de caminhos: se for placeholder mantém o link externo, se for imagem local adiciona '../'
+                // AJUSTE DE CAMINHO: Garante que o carrinho ache a imagem na nova estrutura
                 const imgPath = item.image.includes('placeholder') ? item.image : `../${item.image}`;
                 
                 const itemElement = document.createElement('div');
@@ -261,7 +271,6 @@
             summary.style.display = 'block';
         }
 
-        // Executa a renderização assim que a página terminar de carregar
         document.addEventListener('DOMContentLoaded', renderCartPage);
     </script>
 </body>
