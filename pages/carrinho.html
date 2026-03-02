@@ -21,234 +21,42 @@
     <link rel="stylesheet" href="../assets/css/responsive.css">
     
     <style>
-        .cart-page {
-            padding: 8rem 0 4rem;
-            min-height: 60vh;
-        }
-        
-        .cart-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .cart-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .cart-items {
-            background: white;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-        
-        .cart-item {
-            display: grid;
-            grid-template-columns: 100px 1fr auto auto;
-            gap: 1.5rem;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid var(--gray-200);
-        }
-        
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        
-        .cart-item-image {
-            width: 100px;
-            height: 80px;
-            background: var(--gray-200);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-500);
-            font-size: 1.5rem;
-        }
-        
-        .cart-item-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .cart-item-info p {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-        }
-        
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .qty-btn {
-            width: 32px;
-            height: 32px;
-            border: 1px solid var(--gray-300);
-            background: white;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-fast);
-        }
-        
-        .qty-btn:hover {
-            background: var(--gray-100);
-        }
-        
-        .qty-value {
-            font-weight: 600;
-            min-width: 30px;
-            text-align: center;
-        }
-        
-        .cart-item-price {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-        }
-        
-        .cart-item-remove {
-            color: var(--secondary);
-            cursor: pointer;
-            padding: 0.5rem;
-            transition: var(--transition-fast);
-        }
-        
-        .cart-item-remove:hover {
-            transform: scale(1.1);
-        }
-        
-        .cart-empty {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        
-        .cart-empty i {
-            font-size: 4rem;
-            color: var(--gray-300);
-            margin-bottom: 1.5rem;
-        }
-        
-        .cart-summary {
-            background: var(--gray-100);
-            padding: 2rem;
-            border-radius: var(--radius-xl);
-            margin-bottom: 2rem;
-        }
-        
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .summary-row.total {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            border-top: 2px solid var(--gray-300);
-            padding-top: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .cart-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .btn-continue {
-            flex: 1;
-            padding: 1rem 2rem;
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-            border-radius: var(--radius-lg);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            text-align: center;
-            transition: var(--transition-fast);
-        }
-        
-        .btn-continue:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-checkout {
-            flex: 2;
-            min-width: 300px;
-            padding: 1rem 2rem;
-            background: #25d366;
-            color: white;
-            border: none;
-            border-radius: var(--radius-lg);
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            transition: var(--transition-fast);
-        }
-        
-        .btn-checkout:hover {
-            background: #128c7e;
-            transform: translateY(-2px);
-        }
-        
-        .cart-note {
-            background: var(--accent);
-            background: rgba(251, 191, 36, 0.1);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            margin-bottom: 2rem;
-        }
-        
-        .cart-note p {
-            margin: 0;
-            color: var(--gray-800);
-            font-size: 0.95rem;
-        }
+        .cart-page { padding: 8rem 0 4rem; min-height: 60vh; }
+        .cart-container { max-width: 800px; margin: 0 auto; }
+        .cart-header { text-align: center; margin-bottom: 3rem; }
+        .cart-items { background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); overflow: hidden; margin-bottom: 2rem; }
+        .cart-item { display: grid; grid-template-columns: 100px 1fr auto auto; gap: 1.5rem; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--gray-200); }
+        .cart-item:last-child { border-bottom: none; }
+        .cart-item-image { width: 100px; height: 80px; background: var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: var(--gray-500); font-size: 1.5rem; }
+        .cart-item-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--dark); }
+        .cart-item-info p { font-size: 0.875rem; color: var(--gray-600); }
+        .cart-item-quantity { display: flex; align-items: center; gap: 0.75rem; }
+        .qty-btn { width: 32px; height: 32px; border: 1px solid var(--gray-300); background: white; border-radius: var(--radius-md); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition-fast); }
+        .qty-btn:hover { background: var(--gray-100); }
+        .qty-value { font-weight: 600; min-width: 30px; text-align: center; }
+        .cart-item-price { font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+        .cart-item-remove { color: var(--secondary); cursor: pointer; padding: 0.5rem; transition: var(--transition-fast); }
+        .cart-item-remove:hover { transform: scale(1.1); }
+        .cart-empty { text-align: center; padding: 4rem 2rem; }
+        .cart-empty i { font-size: 4rem; color: var(--gray-300); margin-bottom: 1.5rem; }
+        .cart-summary { background: var(--gray-100); padding: 2rem; border-radius: var(--radius-xl); margin-bottom: 2rem; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 1rem; font-size: 1.1rem; }
+        .summary-row.total { font-size: 1.5rem; font-weight: 700; color: var(--primary); border-top: 2px solid var(--gray-300); padding-top: 1rem; margin-top: 1rem; }
+        .cart-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .btn-continue { flex: 1; padding: 1rem 2rem; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: var(--radius-lg); font-family: var(--font-heading); font-weight: 600; text-align: center; transition: var(--transition-fast); }
+        .btn-continue:hover { background: var(--primary); color: white; }
+        .btn-checkout { flex: 2; min-width: 300px; padding: 1rem 2rem; background: #25d366; color: white; border: none; border-radius: var(--radius-lg); font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.75rem; transition: var(--transition-fast); }
+        .btn-checkout:hover { background: #128c7e; transform: translateY(-2px); }
+        .cart-note { background: rgba(251, 191, 36, 0.1); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: var(--radius-md); margin-bottom: 2rem; }
+        .cart-note p { margin: 0; color: var(--gray-800); font-size: 0.95rem; }
         
         /* Logo Styles */
-        .logo-real {
-            display: flex;
-            align-items: center;
-            height: 50px;
-        }
-        
-        .logo-real img {
-            height: 100%;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
-        }
+        .logo-real { display: flex; align-items: center; height: 50px; }
+        .logo-real img { height: 100%; width: auto; max-width: 150px; object-fit: contain; }
         
         @media (max-width: 640px) {
-            .cart-item {
-                grid-template-columns: 80px 1fr;
-                gap: 1rem;
-            }
-            
-            .cart-item-quantity,
-            .cart-item-price {
-                grid-column: 2;
-                justify-self: start;
-            }
+            .cart-item { grid-template-columns: 80px 1fr; gap: 1rem; }
+            .cart-item-quantity, .cart-item-price { grid-column: 2; justify-self: start; }
         }
     </style>
 </head>
@@ -258,11 +66,10 @@
         <div class="container">
             <div class="header-content" style="height: 70px;">
                 <a href="../index.html" class="logo-real">
-                    <img src="../logo.png" alt="Vidal Design Solutions - Logo">
+                    <img src="../logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
                 </a>
-                <a href="../index.html" class="back-link" style="margin: 0;">
-                    <i class="fas fa-arrow-left"></i>
-                    Voltar
+                <a href="../index.html" class="back-link" style="margin: 0; display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary); font-weight: 600;">
+                    <i class="fas fa-arrow-left"></i> Voltar
                 </a>
             </div>
         </div>
@@ -285,6 +92,45 @@
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo-footer" style="height: 50px; margin-bottom: 1rem;">
+                        <img src="../logo.png" alt="Vidal Design Solutions - Logo" style="height: 100%; object-fit: contain;">
+                    </div>
+                    <p class="footer-description">
+                        Soluções completas em comunicação visual desde 2007. 
+                        Qualidade, agilidade e atendimento personalizado.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/share/1BqrEs4rEr/" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/vidaldesignsolutions?igsh=MTYxbTgxazY5ZzI1OQ==" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 250px;">
+                        <a href="https://photos.app.goo.gl/HiRZfa4eNnUpwyca7" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); color: white; font-size: 0.85rem; transition: background 0.3s;"><i class="fas fa-images" style="color: var(--accent);"></i> Nosso Álbum de Fotos</a>
+                        <a href="https://g.page/r/CXNPrWMbM0IZEBM/review" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); color: white; font-size: 0.85rem; transition: background 0.3s;"><i class="fas fa-star" style="color: var(--accent);"></i> Avalie-nos no Google</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#produtos">Produtos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <ul class="contact-list">
+                        <li><i class="fab fa-whatsapp"></i><div><span>WhatsApp (Gilney)</span><a href="https://wa.me/5511968649673" target="_blank">(11) 96864-9673</a></div></li>
+                        <li><i class="fab fa-whatsapp"></i><div><span>WhatsApp (Elisete)</span><a href="https://wa.me/5511949141803" target="_blank">(11) 94914-1803</a></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         let cart = JSON.parse(localStorage.getItem('vidalCart')) || [];
@@ -409,7 +255,6 @@
             
             const url = `https://wa.me/5511968649673?text=${encodeURIComponent(message)}`;
             
-            // Track
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'begin_checkout', {
                     'event_category': 'conversion',
@@ -417,10 +262,8 @@
                 });
             }
             
-            // Clear cart
             cart = [];
             saveCart();
-            
             window.open(url, '_blank');
             renderCart();
         }
@@ -432,7 +275,6 @@
             }).format(value);
         }
         
-        // Initialize
         renderCart();
     </script>
 </body>
