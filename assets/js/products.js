@@ -1,172 +1,156 @@
 // ==========================================
-// VIDAL DESIGN SOLUTIONS - PRODUCTS MODULE
+// VIDAL DESIGN SOLUTIONS - PRODUCTS CATALOG
 // ==========================================
 
-let productsData = [];
-let currentFilter = 'all';
-
-// Load products from JSON
-async function loadProducts() {
-    try {
-        // O parâmetro '?t=' + timestamp evita que o navegador ou o GitHub Pages guardem cache antigo
-        const response = await fetch('data/products.json?t=' + new Date().getTime());
-        
-        if (!response.ok) {
-            throw new Error(`Erro de rede: status ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Verifica se o JSON foi carregado e formatado corretamente
-        if (!data || !data.products) {
-            throw new Error('Formato do JSON inválido ou vazio');
-        }
-        
-        productsData = data.products;
-        
-        // Aplica o filtro atual (por padrão carrega 'all')
-        filterProducts(currentFilter);
-        
-    } catch (error) {
-        console.error('Erro ao carregar produtos:', error);
-        showErrorMessage();
+// Catálogo de Produtos (Valores de referência para 2026)
+const productsData = [
+    {
+        id: 'prod-adesivo-01',
+        name: 'Adesivo Vinil Impresso',
+        category: 'adesivos',
+        description: 'Adesivo em vinil com impressão digital de alta resolução. Ideal para vitrines, veículos e sinalização. Valor por metro quadrado.',
+        basePrice: 85.00,
+        image: 'adesivo-branco-impresso-vinil.jpg'
+    },
+    {
+        id: 'prod-banner-01',
+        name: 'Banner Lona com Acabamento',
+        category: 'banners',
+        description: 'Banner em lona 440g com acabamento em bastão e corda. Alta durabilidade externa com cores vivas. Valor por metro quadrado.',
+        basePrice: 95.00,
+        image: 'banner-lona.jpg'
+    },
+    {
+        id: 'prod-sinal-01',
+        name: 'Placa de Sinalização em ACM',
+        category: 'sinalizacao',
+        description: 'Placa rígida em ACM 3mm com adesivo vinil aplicado. Resistente a intempéries. Valor base para orçamento.',
+        basePrice: 280.00,
+        image: 'https://via.placeholder.com/400x300/1e3a8a/ffffff?text=Placa+ACM'
+    },
+    {
+        id: 'prod-toldo-01',
+        name: 'Toldo Retrátil Articulado',
+        category: 'toldos',
+        description: 'Estrutura em alumínio com lona de alta resistência. Proteção UV e chuva. Preço estimado por metro linear.',
+        basePrice: 450.00,
+        image: 'https://via.placeholder.com/400x300/f97316/ffffff?text=Toldo+Retratil'
+    },
+    {
+        id: 'prod-fachada-01',
+        name: 'Letra Caixa Iluminada',
+        category: 'fachadas',
+        description: 'Letras em alto relevo com iluminação LED interna. Alto impacto visual noturno para a fachada do seu negócio.',
+        basePrice: 850.00,
+        image: 'https://via.placeholder.com/400x300/111827/ffffff?text=Letra+Caixa'
+    },
+    {
+        id: 'prod-social-01',
+        name: 'Pacote Social Media (10 Artes)',
+        category: 'social mídia',
+        description: 'Criação de 10 artes profissionais exclusivas para Instagram e Facebook (Formatos Feed e Story).',
+        basePrice: 350.00,
+        image: 'https://via.placeholder.com/400x300/fbbf24/111827?text=Artes+Redes+Sociais'
     }
+];
+
+// Função para formatar moeda (Real Brasileiro)
+function formatCurrencyProduct(value) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(value);
 }
 
-// Render products grid
-function renderProducts(products) {
-    const grid = document.getElementById('productsGrid');
+// Função principal para renderizar os produtos na tela
+function renderProducts(productsToRender) {
+    const productsGrid = document.getElementById('productsGrid');
     
-    if (!grid) return;
+    // Verifica se o contêiner existe na página
+    if (!productsGrid) return;
     
-    if (products.length === 0) {
-        grid.innerHTML = '<p class="no-products" style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--gray-500);">Nenhum produto encontrado nesta categoria no momento.</p>';
+    // Limpa o grid antes de popular
+    productsGrid.innerHTML = '';
+    
+    // Se não houver produtos para a categoria selecionada
+    if (productsToRender.length === 0) {
+        productsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--gray-500);">
+                <i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h3>Nenhum produto encontrado nesta categoria.</h3>
+                <p>Entre em contato via WhatsApp para orçamentos personalizados.</p>
+            </div>
+        `;
         return;
     }
     
-    grid.innerHTML = products.map(product => createProductCard(product)).join('');
-    
-    // Add click handlers to product buttons
-    document.querySelectorAll('.product-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const productId = parseInt(e.currentTarget.getAttribute('data-id'));
-            openProductPage(productId);
-        });
+    // Cria os cards de produtos
+    productsToRender.forEach((product, index) => {
+        // Verifica se é uma imagem do placeholder ou arquivo real
+        const isPlaceholder = product.image.includes('placeholder');
+        const imageContent = isPlaceholder 
+            ? `<div class="product-image-placeholder"><img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;"></div>`
+            : `<img src="${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+
+        const card = document.createElement('div');
+        card.className = 'product-card animate-in';
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.innerHTML = `
+            <div class="product-image">
+                <span class="product-badge">${product.category}</span>
+                ${imageContent}
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">${product.name}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-footer">
+                    <div class="product-price">
+                        <span class="price-label">A partir de</span>
+                        <span class="price-value">${formatCurrencyProduct(product.basePrice)}</span>
+                    </div>
+                    <button class="product-btn add-to-cart-btn" data-id="${product.id}">
+                        <i class="fas fa-plus"></i> Adicionar
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        productsGrid.appendChild(card);
     });
     
-    // Add click handlers to cards (for image/title clicks)
-    document.querySelectorAll('.product-card').forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (!e.target.closest('.product-btn')) {
-                const productId = parseInt(card.getAttribute('data-id'));
-                openProductPage(productId);
+    // Re-atribui os eventos de clique para os novos botões "Adicionar"
+    attachCartEvents();
+}
+
+// Função para ligar os botões recém-criados ao cart.js
+function attachCartEvents() {
+    const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+            const product = productsData.find(p => p.id === productId);
+            if (product && typeof addToCart === 'function') {
+                addToCart(product);
             }
         });
     });
 }
 
-// Create product card HTML
-function createProductCard(product) {
-    const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
+// Inicializa a vitrine quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', () => {
+    // Renderiza todos os produtos inicialmente
+    renderProducts(productsData);
     
-    // Tenta carregar a imagem. Se der erro (ex: extensão errada), ativa o fallback (placeholder)
-    const imageHtml = product.image && product.image !== 'placeholder' ? 
-        `<img src="assets/images/produtos/${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-         <div style="display:none; flex-direction:column; align-items:center; width: 100%; height: 100%; justify-content: center;">
-            <i class="fas fa-image"></i><span style="font-size: 0.8rem; text-align: center; padding: 0.5rem;">${product.name}</span>
-         </div>` : 
-        `<div class="product-image-placeholder">
-            <i class="fas fa-image"></i>
-            <span style="font-size: 0.8rem; text-align: center; padding: 0.5rem;">${product.name}</span>
-        </div>`;
-
-    return `
-        <article class="product-card" data-id="${product.id}" data-category="${product.category}" style="cursor: pointer;">
-            <div class="product-image" style="background: var(--gray-200); aspect-ratio: 4/3;">
-                ${imageHtml}
-                ${badge}
-            </div>
-            <div class="product-info">
-                <span class="product-category">${product.categoryLabel}</span>
-                <h3 class="product-title">${product.name}</h3>
-                <p class="product-description">${product.shortDescription}</p>
-                
-                <div class="product-footer" style="display: flex; justify-content: center; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
-                    <button class="product-btn" data-id="${product.id}" style="width: 100%; justify-content: center; padding: 0.8rem;">
-                        <i class="fas fa-list"></i>
-                        Detalhes e Orçamento
-                    </button>
-                </div>
-            </div>
-        </article>
-    `;
-}
-
-// Filter products
-function filterProducts(category) {
-    currentFilter = category;
-    
-    if (category === 'all') {
-        renderProducts(productsData);
-    } else {
-        const filtered = productsData.filter(p => p.category === category);
-        renderProducts(filtered);
-    }
-    
-    // Animate grid
-    const grid = document.getElementById('productsGrid');
-    if (grid) {
-        grid.style.opacity = '0';
-        setTimeout(() => {
-            grid.style.transition = 'opacity 0.3s ease';
-            grid.style.opacity = '1';
-        }, 100);
-    }
-}
-
-// Open product page (redirect to product detail)
-function openProductPage(productId) {
-    const product = productsData.find(p => p.id === productId);
-    
-    if (!product) return;
-    
-    // Store product data in sessionStorage for the product page
-    sessionStorage.setItem('currentProduct', JSON.stringify(product));
-    
-    // Track event
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'view_product', {
-            'event_category': 'engagement',
-            'event_label': product.name
-        });
-    }
-    
-    // Redirect to product page
-    window.location.href = `pages/produto.html?id=${productId}`;
-}
-
-// Show error message
-function showErrorMessage() {
-    const grid = document.getElementById('productsGrid');
-    if (grid) {
-        grid.innerHTML = `
-            <div class="error-message" style="text-align: center; padding: 3rem; grid-column: 1/-1;">
-                <i class="fas fa-exclamation-circle" style="font-size: 3rem; color: var(--secondary); margin-bottom: 1rem;"></i>
-                <h3>Erro de Conexão com o Catálogo</h3>
-                <p style="margin-bottom: 1rem;">Ocorreu um erro ao ler o arquivo data/products.json do GitHub. Verifique se o arquivo existe e está no formato correto.</p>
-                <a href="https://wa.me/5511968649673" class="btn btn-primary" style="margin-top: 1rem;">
-                    <i class="fab fa-whatsapp"></i>
-                    Falar no WhatsApp
-                </a>
-            </div>
-        `;
-    }
-}
-
-// Listen for filter events
-window.addEventListener('filterProducts', (e) => {
-    filterProducts(e.detail.category);
+    // Escuta o evento customizado disparado pelos botões de filtro no HTML e no main.js
+    window.addEventListener('filterProducts', (e) => {
+        const category = e.detail.category;
+        
+        if (category === 'all') {
+            renderProducts(productsData);
+        } else {
+            const filtered = productsData.filter(p => p.category === category);
+            renderProducts(filtered);
+        }
+    });
 });
-
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', loadProducts);
