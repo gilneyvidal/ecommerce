@@ -13,6 +13,9 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../logo.png">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
@@ -221,6 +224,20 @@
             font-size: 0.95rem;
         }
         
+        /* Logo Styles */
+        .logo-real {
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+        
+        .logo-real img {
+            height: 100%;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+        
         @media (max-width: 640px) {
             .cart-item {
                 grid-template-columns: 80px 1fr;
@@ -240,11 +257,8 @@
     <header class="header" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: white; border-bottom: 1px solid var(--gray-200);">
         <div class="container">
             <div class="header-content" style="height: 70px;">
-                <a href="../index.html" class="logo">
-                    <div class="logo-placeholder" style="width: 150px; height: 50px; font-size: 0.7rem;">
-                        <i class="fas fa-paint-brush" style="font-size: 1.25rem;"></i>
-                        <span>SUA LOGO</span>
-                    </div>
+                <a href="../index.html" class="logo-real">
+                    <img src="../logo.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 <a href="../index.html" class="back-link" style="margin: 0;">
                     <i class="fas fa-arrow-left"></i>
