@@ -17,15 +17,15 @@
         {
           "name": "Qualidade da Impressão",
           "choices": [
-            {"label": "Standard (Incluso)", "priceModifier": 0},
-            {"label": "Premium (+ R$20/m²)", "priceModifier": 20.00}
+            {"label": "Standard", "priceModifier": 0},
+            {"label": "Premium", "priceModifier": 20.00}
           ]
         },
         {
           "name": "Criação de Arte",
           "choices": [
             {"label": "Não, já tenho a arte pronta", "priceModifier": 0},
-            {"label": "Sim, preciso da criação (+ R$50)", "priceModifier": 50.00, "isFixed": true}
+            {"label": "Sim, preciso da criação", "priceModifier": 50.00, "isFixed": true}
           ]
         }
       ],
@@ -52,15 +52,15 @@
         {
           "name": "Qualidade da Impressão",
           "choices": [
-            {"label": "Standard (Incluso)", "priceModifier": 0},
-            {"label": "Premium (+ R$20/m²)", "priceModifier": 20.00}
+            {"label": "Standard", "priceModifier": 0},
+            {"label": "Premium", "priceModifier": 20.00}
           ]
         },
         {
           "name": "Criação de Arte",
           "choices": [
             {"label": "Não, já tenho a arte pronta", "priceModifier": 0},
-            {"label": "Sim, preciso da criação (+ R$50)", "priceModifier": 50.00, "isFixed": true}
+            {"label": "Sim, preciso da criação", "priceModifier": 50.00, "isFixed": true}
           ]
         }
       ],
