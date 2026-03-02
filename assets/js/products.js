@@ -54,27 +54,32 @@ function renderProducts(products) {
 function createProductCard(product) {
     const badge = product.badge ? `<span class="product-badge">${product.badge}</span>` : '';
     
+    // Imagem tratada (se tiver a imagem real, ele tenta carregar, senão usa placeholder)
+    const imageHtml = product.image && product.image !== 'placeholder' ? 
+        `<img src="assets/images/produtos/${product.image}" alt="${product.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+         <div style="display:none; flex-direction:column; align-items:center; width: 100%; height: 100%; justify-content: center;">
+            <i class="fas fa-image"></i><span>IMG PRODUTO<br>${product.id}</span>
+         </div>` : 
+        `<div class="product-image-placeholder">
+            <i class="fas fa-image"></i>
+            <span>IMG PRODUTO<br>${product.id}</span>
+        </div>`;
+
     return `
-        <article class="product-card" data-id="${product.id}" data-category="${product.category}">
-            <div class="product-image">
-                <div class="product-image-placeholder">
-                    <i class="fas fa-image"></i>
-                    <span>IMG PRODUTO<br>${product.id}</span>
-                </div>
+        <article class="product-card" data-id="${product.id}" data-category="${product.category}" style="cursor: pointer;">
+            <div class="product-image" style="background: var(--gray-200); aspect-ratio: 4/3;">
+                ${imageHtml}
                 ${badge}
             </div>
             <div class="product-info">
                 <span class="product-category">${product.categoryLabel}</span>
                 <h3 class="product-title">${product.name}</h3>
                 <p class="product-description">${product.shortDescription}</p>
-                <div class="product-footer">
-                    <div class="product-price">
-                        <span class="price-label">A partir de</span>
-                        <span class="price-value">${formatCurrency(product.basePrice)}/${product.unit}</span>
-                    </div>
-                    <button class="product-btn" data-id="${product.id}">
-                        <i class="fas fa-whatsapp"></i>
-                        Orçar
+                
+                <div class="product-footer" style="display: flex; justify-content: center; padding-top: 1rem; border-top: 1px solid var(--gray-200);">
+                    <button class="product-btn" data-id="${product.id}" style="width: 100%; justify-content: center; padding: 0.8rem;">
+                        <i class="fas fa-list"></i>
+                        Detalhes
                     </button>
                 </div>
             </div>
