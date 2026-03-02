@@ -14,7 +14,7 @@
     <meta property="og:url" content="https://vidaldesignsolutions.com.br">
     <meta property="og:image" content="https://vidaldesignsolutions.com.br/logo.png">
     
-    <!-- Google Analytics 4 (substitua G-XXXXXXXXXX pelo seu ID) -->
+    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -41,30 +41,38 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     
     <style>
-        /* Logo Styles */
-        .logo-real {
+        /* Logo Styles - HEADER (logo_cabecalho.png) */
+        .logo-header {
             display: flex;
             align-items: center;
             height: 60px;
         }
         
-        .logo-real img {
+        .logo-header img {
             height: 100%;
             width: auto;
-            max-width: 200px;
+            max-width: 220px;
             object-fit: contain;
         }
         
-        .footer-logo-real {
+        /* Logo Styles - FOOTER (logo.png) */
+        .logo-footer {
+            display: flex;
+            align-items: center;
             height: 50px;
             margin-bottom: 1rem;
         }
         
-        .footer-logo-real img {
+        .logo-footer img {
             height: 100%;
             width: auto;
             max-width: 180px;
             object-fit: contain;
+        }
+        
+        /* Category cards cursor pointer */
+        .category-card {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -73,9 +81,9 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <!-- Logo -->
-                <a href="#" class="logo-real">
-                    <img src="logo.png" alt="Vidal Design Solutions - Logo">
+                <!-- Logo HEADER (logo_cabecalho.png) -->
+                <a href="#" class="logo-header">
+                    <img src="logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 
                 <!-- Navigation -->
@@ -173,58 +181,58 @@
             </div>
             
             <div class="categories-grid">
-                <div class="category-card" data-category="adesivos">
+                <div class="category-card" onclick="filterByCategory('adesivos')">
                     <div class="category-icon">
                         <i class="fas fa-sticky-note"></i>
                     </div>
                     <h3>Adesivos</h3>
                     <p>Recorte, impressão, vinil, perfurado</p>
-                    <span class="category-count">12 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" data-category="banners">
+                <div class="category-card" onclick="filterByCategory('banners')">
                     <div class="category-icon">
                         <i class="fas fa-scroll"></i>
                     </div>
                     <h3>Banners e Lonas</h3>
                     <p>Banners, lonas, faixas, backdrops</p>
-                    <span class="category-count">8 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" data-category="sinalizacao">
+                <div class="category-card" onclick="filterByCategory('sinalizacao')">
                     <div class="category-icon">
                         <i class="fas fa-sign"></i>
                     </div>
                     <h3>Sinalização</h3>
                     <p>Placas, letreiros, totens, displays</p>
-                    <span class="category-count">15 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" data-category="toldos">
+                <div class="category-card" onclick="filterByCategory('toldos')">
                     <div class="category-icon">
                         <i class="fas fa-umbrella"></i>
                     </div>
                     <h3>Toldos</h3>
                     <p>Toldos fixos, retráteis, coberturas</p>
-                    <span class="category-count">6 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" data-category="fachadas">
+                <div class="category-card" onclick="filterByCategory('fachadas')">
                     <div class="category-icon">
                         <i class="fas fa-building"></i>
                     </div>
                     <h3>Fachadas</h3>
                     <p>ACM, letra caixa, luminosos</p>
-                    <span class="category-count">10 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" data-category="papelaria">
+                <div class="category-card" onclick="filterByCategory('papelaria')">
                     <div class="category-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Papelaria</h3>
                     <p>Cartões, flyers, folders, envelopes</p>
-                    <span class="category-count">20 produtos</span>
+                    <span class="category-count">Ver produtos</span>
                 </div>
             </div>
         </div>
@@ -400,7 +408,8 @@
             <div class="footer-grid">
                 <!-- Brand -->
                 <div class="footer-brand">
-                    <div class="footer-logo-real">
+                    <!-- Logo FOOTER (logo.png) -->
+                    <div class="logo-footer">
                         <img src="logo.png" alt="Vidal Design Solutions - Logo">
                     </div>
                     <p class="footer-description">
@@ -435,11 +444,11 @@
                 <div class="footer-links">
                     <h4>Categorias</h4>
                     <ul>
-                        <li><a href="#">Adesivos</a></li>
-                        <li><a href="#">Banners e Lonas</a></li>
-                        <li><a href="#">Sinalização</a></li>
-                        <li><a href="#">Toldos</a></li>
-                        <li><a href="#">Fachadas</a></li>
+                        <li><a href="#" onclick="filterByCategory('adesivos'); return false;">Adesivos</a></li>
+                        <li><a href="#" onclick="filterByCategory('banners'); return false;">Banners e Lonas</a></li>
+                        <li><a href="#" onclick="filterByCategory('sinalizacao'); return false;">Sinalização</a></li>
+                        <li><a href="#" onclick="filterByCategory('toldos'); return false;">Toldos</a></li>
+                        <li><a href="#" onclick="filterByCategory('fachadas'); return false;">Fachadas</a></li>
                     </ul>
                 </div>
                 
@@ -504,5 +513,26 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/products.js"></script>
     <script src="assets/js/cart.js"></script>
+    
+    <script>
+        // Função para filtrar produtos ao clicar nas categorias
+        function filterByCategory(category) {
+            // Rola a tela até a sessão de produtos
+            document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+            
+            // Dispara o evento de filtro exatamente como os botões menores fazem
+            window.dispatchEvent(new CustomEvent('filterProducts', { 
+                detail: { category: category } 
+            }));
+            
+            // Atualiza o visual dos botões de filtro (marca o ativo)
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
