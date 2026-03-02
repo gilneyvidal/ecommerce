@@ -12,6 +12,7 @@
     <meta property="og:description" content="Materiais gráficos de qualidade com entrega rápida em São Paulo">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vidaldesignsolutions.com.br">
+    <meta property="og:image" content="https://vidaldesignsolutions.com.br/logo.png">
     
     <!-- Google Analytics 4 (substitua G-XXXXXXXXXX pelo seu ID) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -32,21 +33,49 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <style>
+        /* Logo Styles */
+        .logo-real {
+            display: flex;
+            align-items: center;
+            height: 60px;
+        }
+        
+        .logo-real img {
+            height: 100%;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .footer-logo-real {
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo-real img {
+            height: 100%;
+            width: auto;
+            max-width: 180px;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <!-- Logo Space -->
-                <a href="#" class="logo">
-                    <div class="logo-placeholder">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>SUA LOGO AQUI</span>
-                    </div>
+                <!-- Logo -->
+                <a href="#" class="logo-real">
+                    <img src="logo.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 
                 <!-- Navigation -->
@@ -371,9 +400,8 @@
             <div class="footer-grid">
                 <!-- Brand -->
                 <div class="footer-brand">
-                    <div class="logo-placeholder footer-logo">
-                        <i class="fas fa-paint-brush"></i>
-                        <span>SUA LOGO AQUI</span>
+                    <div class="footer-logo-real">
+                        <img src="logo.png" alt="Vidal Design Solutions - Logo">
                     </div>
                     <p class="footer-description">
                         Soluções completas em comunicação visual desde 2007. 
@@ -460,7 +488,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
-                <p>agência HUBELLE</p>
+                <p>CNPJ: [INSIRA SEU CNPJ] | Desenvolvido com ❤️ em São Paulo</p>
             </div>
         </div>
     </footer>
