@@ -6,7 +6,7 @@ Site institucional e catálogo de produtos dinâmico para a Vidal Design Solutio
 
 * **Catálogo Dinâmico:** Carregamento de produtos via JavaScript (simulando um banco de dados local com atualizações de valores).
 * **Filtros por Categoria:** Navegação fluida entre adesivos, banners, fachadas, toldos e social mídia.
-* **Calculadora Inteligente (Modal):** Algoritmo integrado em uma janela flutuante para precificação baseada em largura e altura (em centímetros) ou metro linear, aplicando regras de pedido mínimo de 1m² e adicionais de acabamento.
+* **Calculadora Inteligente (Modal):** Algoritmo integrado em uma janela flutuante para precificação baseada em largura e altura (em centímetros) ou metro linear, aplicando regras de pedido mínimo de 0,5m² (meio metro quadrado) e adicionais de acabamento.
 * **Carrinho de Orçamentos:** Armazenamento local (localStorage) permitindo ao usuário montar um pacote completo de materiais sem perder os dados ao fechar a aba.
 * **Integração WhatsApp:** Geração inteligente de mensagens contendo todos os itens selecionados, especificações exatas (medidas e acabamentos) e o valor total estimado.
 
