@@ -1164,3 +1164,142 @@ h1, h2, h3, h4, h5, h6 {
 .mt-2 { margin-top: 1rem; }
 .mt-3 { margin-top: 1.5rem; }
 .mt-4 { margin-top: 2rem; }
+
+/* ==========================================
+   MODAL DE CONFIGURAÇÃO DE PRODUTOS
+   ========================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-content {
+    background: var(--white);
+    width: 90%;
+    max-width: 600px;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.hidden .modal-content {
+    transform: translateY(20px);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: var(--gray-100);
+    border: none;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--gray-600);
+    transition: var(--transition-fast);
+}
+
+.modal-close:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-size: 0.95rem;
+}
+
+.form-group input[type="number"],
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.form-group input[type="number"]:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+}
+
+.radio-label {
+    display: block;
+    padding: 0.75rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.95rem;
+}
+
+.radio-label:hover {
+    background: var(--gray-50);
+}
+
+.modal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-total {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-600);
+}
+
+.modal-total span {
+    display: block;
+    font-size: 1.75rem;
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; }
+    .modal-content { padding: 1.5rem; }
+    .modal-footer { flex-direction: column; gap: 1rem; text-align: center; }
+    .modal-footer button { width: 100%; }
+}
