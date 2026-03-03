@@ -1,10 +1,3 @@
----
-
-### 2. O Arquivo Corrigido: `assets/js/products.js`
-
-Ajustei a matemática da função `calcTotal()` para travar o `multiplier` mínimo em `0.5` caso o produto seja calculado por área (`m²`). Copie e cole tudo lá:
-
-```javascript
 // ==========================================
 // VIDAL DESIGN SOLUTIONS - PRODUCTS CATALOG & CALCULATOR
 // ==========================================
@@ -329,9 +322,7 @@ function openModal(productId) {
         </div>
         
         <div id="modalSummary" style="background: var(--gray-50); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200); margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-700); line-height: 1.5;">
-            </div>
-
-        <div class="modal-footer">
+        </div> <div class="modal-footer">
             <div class="modal-total">Total Estimado: <span id="modalTotalPrice">R$ 0,00</span></div>
             <button class="btn btn-primary" onclick="confirmModalCart()">Adicionar ao Orçamento</button>
         </div>
@@ -359,7 +350,7 @@ function calcTotal() {
         let areaM2 = (w_cm / 100) * (h_cm / 100);
         summaryText += `- <strong>Medidas:</strong> ${w_cm}cm x ${h_cm}cm<br>`;
         if (w_cm > 0 && h_cm > 0) {
-            multiplier = areaM2 < 0.5 ? 0.5 : areaM2; // <--- AQUI ESTÁ O AJUSTE PARA MEIO METRO QUADRADO
+            multiplier = areaM2 < 0.5 ? 0.5 : areaM2; 
         }
     } else if (currentProduct.calcType === 'linear') {
         summaryText += `- <strong>Largura:</strong> ${w_cm}cm lineares<br>`;
