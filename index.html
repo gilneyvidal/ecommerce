@@ -29,7 +29,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
@@ -74,7 +74,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo-header">
-                    <img src="assets/images/logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
+                    <img src="logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 
                 <nav class="nav-menu" id="navMenu">
@@ -145,7 +145,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="assets/images/imagem-hero.jpg" alt="Vidal Design Solutions - Produto em Destaque" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);" onerror="this.src='https://via.placeholder.com/600x450/1e3a8a/ffffff?text=Coloque+sua+imagem+aqui'">
+                    <img src="assets/images/produtos/imagem-hero.jpg" alt="Vidal Design Solutions - Produto em Destaque" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);" onerror="this.src='https://via.placeholder.com/600x450/1e3a8a/ffffff?text=Adicione+imagem-hero.jpg'">
                 </div>
             </div>
         </div>
@@ -362,7 +362,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo-footer">
-                        <img src="assets/images/logo.png" alt="Vidal Design Solutions - Logo">
+                        <img src="logo.png" alt="Vidal Design Solutions - Logo">
                     </div>
                     <p class="footer-description">
                         Soluções completas em comunicação visual desde 2007. 
@@ -394,6 +394,17 @@
                         <li><a href="#produtos">Produtos</a></li>
                         <li><a href="#sobre">Sobre Nós</a></li>
                         <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="#" onclick="filterByCategory('adesivos'); return false;">Adesivos</a></li>
+                        <li><a href="#" onclick="filterByCategory('banners'); return false;">Banners e Lonas</a></li>
+                        <li><a href="#" onclick="filterByCategory('sinalizacao'); return false;">Sinalização</a></li>
+                        <li><a href="#" onclick="filterByCategory('toldos'); return false;">Toldos</a></li>
+                        <li><a href="#" onclick="filterByCategory('fachadas'); return false;">Fachadas</a></li>
                     </ul>
                 </div>
                 
@@ -440,9 +451,15 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/5511968649673?text=Olá! Vim pelo site e gostaria de fazer um orçamento." 
+       class="whatsapp-float" target="_blank" id="whatsappFloat">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
+
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/cart.js"></script>
     <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
     
     <script>
         function filterByCategory(category) {
