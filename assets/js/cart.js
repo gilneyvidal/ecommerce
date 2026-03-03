@@ -2,25 +2,36 @@
 // VIDAL DESIGN SOLUTIONS - CART MODULE
 // ==========================================
 
-// Cart state
+// Recupera o carrinho salvo na memória do navegador
 let cart = JSON.parse(localStorage.getItem('vidalCart')) || [];
 
-// Initialize cart
-function initCart() {
-    updateCartCount();
+// Salva as alterações na memória
+function saveCart() {
+    localStorage.setItem('vidalCart', JSON.stringify(cart));
+}
+
+// Atualiza a bolinha vermelha de contagem de itens em todas as páginas
+function updateCartCount() {
+    const countElements = document.querySelectorAll('#cartCount, #cartItemCount');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
-    // Add to cart buttons (if any on the page)
-    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-        btn.addEventListener('click', addToCart);
+    countElements.forEach(el => {
+        el.textContent = totalItems;
+        // Se for o badge da página do carrinho, adiciona a palavra "itens"
+        if (el.id === 'cartItemCount') {
+            el.textContent = `${totalItems} item(ns)`;
+        }
     });
 }
 
-// Add item to cart
+// Adiciona um novo item ao carrinho (chamado pelo products.js)
 function addToCart(product) {
-    const existingItem = cart.find(item => item.id === product.id);
+    const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
-    if (existingItem) {
-        existingItem.quantity += 1;
+    // Como os IDs agora são únicos (gerados por Date.now() no products.js), 
+    // ele sempre vai adicionar uma linha nova, garantindo que artes diferentes não se misturem
+    if (existingItemIndex > -1) {
+        cart[existingItemIndex].quantity += 1;
     } else {
         cart.push({
             ...product,
@@ -31,9 +42,11 @@ function addToCart(product) {
     
     saveCart();
     updateCartCount();
-    showCartNotification();
     
-    // Track event
+    // Feedback visual rápido pro usuário
+    alert(`${product.name.split(' |')[0]} foi adicionado ao seu orçamento!`);
+    
+    // Rastreamento Analytics (se houver tag instalada)
     if (typeof gtag !== 'undefined') {
         gtag('event', 'add_to_cart', {
             'event_category': 'ecommerce',
@@ -42,110 +55,75 @@ function addToCart(product) {
     }
 }
 
-// Remove item from cart
+// Remove um item completamente (chamado pelo botão da lixeira)
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     saveCart();
     updateCartCount();
-    renderCartPage();
+    
+    // Se estivermos na página do carrinho, re-renderiza a lista para o item sumir da tela
+    if (typeof renderCartPage === 'function') {
+        renderCartPage();
+    }
 }
 
-// Update item quantity
+// Altera a quantidade de um item específico
 function updateQuantity(productId, quantity) {
     const item = cart.find(item => item.id === productId);
-    
     if (item) {
         item.quantity = parseInt(quantity);
-        if (item.quantity <= 0) {
-            removeFromCart(productId);
-        } else {
-            saveCart();
-            updateCartCount();
+        if(item.quantity < 1) item.quantity = 1; // Não permite zero ou número negativo
+        
+        saveCart();
+        updateCartCount();
+        
+        if (typeof renderCartPage === 'function') {
             renderCartPage();
         }
     }
 }
 
-// Save cart to localStorage
-function saveCart() {
-    localStorage.setItem('vidalCart', JSON.stringify(cart));
+// Formata moeda para a lista do WhatsApp
+function formatCurrencyCart(value) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 }
 
-// Update cart count badge
-function updateCartCount() {
-    const countElement = document.getElementById('cartCount');
-    if (countElement) {
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        countElement.textContent = totalItems;
-        countElement.style.display = totalItems > 0 ? 'flex' : 'none';
-    }
-}
-
-// Show notification
-function showCartNotification() {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = 'cart-notification';
-    notification.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        <span>Item adicionado! <a href="pages/carrinho.html">Ver carrinho</a></span>
-    `;
-    
-    // Styles
-    notification.style.cssText = `
-        position: fixed;
-        bottom: 100px;
-        right: 20px;
-        background: var(--primary);
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: var(--radius-lg);
-        box-shadow: var(--shadow-xl);
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        z-index: 1000;
-        animation: slideIn 0.3s ease;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Remove after 3 seconds
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
-}
-
-// Generate WhatsApp message with cart items
+// Gera o texto estruturado que será enviado no WhatsApp
 function generateWhatsAppMessage() {
     if (cart.length === 0) return '';
     
-    let message = 'Olá! Gostaria de fazer um orçamento dos seguintes itens:\n\n';
+    let message = 'Olá, Gilney! Vim pelo site e gostaria de fazer o orçamento dos seguintes itens:\n\n';
+    
+    let totalCart = 0;
     
     cart.forEach((item, index) => {
-        message += `${index + 1}. ${item.name}\n`;
-        message += `   Quantidade: ${item.quantity}\n`;
-        message += `   Preço estimado: ${formatCurrency(item.basePrice * item.quantity)}\n\n`;
+        let itemTotal = item.basePrice * item.quantity;
+        totalCart += itemTotal;
+        
+        message += `*Item ${index + 1}:* ${item.name}\n`;
+        message += `Quantidade: ${item.quantity}\n`;
+        message += `Valor ref. total da peça: ${formatCurrencyCart(itemTotal)}\n\n`;
     });
     
-    message += 'Aguardo retorno com valores finais e prazo de entrega. Obrigado!';
+    message += `*Estimativa Base Final:* ${formatCurrencyCart(totalCart)}\n\n`;
+    message += 'Aguardo o seu retorno para análise técnica e fechamento do pedido. Obrigado!';
     
+    // Transforma o texto em um formato de URL seguro para o navegador
     return encodeURIComponent(message);
 }
 
-// Send cart via WhatsApp
+// A função mestre que é ativada no clique do botão verde do carrinho
 function sendCartViaWhatsApp() {
     if (cart.length === 0) {
-        alert('Seu carrinho está vazio!');
+        alert('Sua lista de orçamento está vazia!');
         return;
     }
     
     const message = generateWhatsAppMessage();
-    const phone = '5511968649673';
+    const phone = '5511968649673'; // O seu número principal do rodapé
     const url = `https://wa.me/${phone}?text=${message}`;
     
-    // Track conversion
+    // Rastreio de conversão
     if (typeof gtag !== 'undefined') {
         gtag('event', 'begin_checkout', {
             'event_category': 'conversion',
@@ -153,14 +131,23 @@ function sendCartViaWhatsApp() {
         });
     }
     
-    // Clear cart after sending
-    cart = [];
-    saveCart();
-    updateCartCount();
-    
-    // Open WhatsApp
+    // AQUI ESTÁ A CORREÇÃO: Abre a página do WhatsApp numa nova guia
     window.open(url, '_blank');
+    
+    // Aguarda 2 segundos e pergunta se o usuário quer limpar a lista
+    setTimeout(() => {
+        if(confirm("Deseja esvaziar sua lista de orçamento agora que o pedido foi enviado?")) {
+            cart = [];
+            saveCart();
+            updateCartCount();
+            if (typeof renderCartPage === 'function') {
+                renderCartPage();
+            }
+        }
+    }, 2000);
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', initCart);
+// Inicializa o carrinho sempre que uma página termina de carregar
+document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
+});
