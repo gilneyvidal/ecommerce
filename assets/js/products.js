@@ -1,3 +1,10 @@
+---
+
+### 2. O Arquivo Corrigido: `assets/js/products.js`
+
+Ajustei a matemática da função `calcTotal()` para travar o `multiplier` mínimo em `0.5` caso o produto seja calculado por área (`m²`). Copie e cole tudo lá:
+
+```javascript
 // ==========================================
 // VIDAL DESIGN SOLUTIONS - PRODUCTS CATALOG & CALCULATOR
 // ==========================================
@@ -347,12 +354,12 @@ function calcTotal() {
     let multiplier = 0;
     let summaryText = `<strong>Resumo da seleção:</strong><br>`;
     
-    // Constrói resumo das medidas
+    // Constrói resumo das medidas e aplica o novo limite de 0.5m²
     if (currentProduct.calcType === 'area') {
         let areaM2 = (w_cm / 100) * (h_cm / 100);
         summaryText += `- <strong>Medidas:</strong> ${w_cm}cm x ${h_cm}cm<br>`;
         if (w_cm > 0 && h_cm > 0) {
-            multiplier = areaM2 < 1 ? 1 : areaM2;
+            multiplier = areaM2 < 0.5 ? 0.5 : areaM2; // <--- AQUI ESTÁ O AJUSTE PARA MEIO METRO QUADRADO
         }
     } else if (currentProduct.calcType === 'linear') {
         summaryText += `- <strong>Largura:</strong> ${w_cm}cm lineares<br>`;
@@ -368,7 +375,6 @@ function calcTotal() {
     let extraM2 = 0;
     let extraFlat = 0;
 
-    // Constrói o resumo das opções e adiciona os preços
     currentProduct.options.forEach((opt, optIndex) => {
         let selectedIndex = 0;
         if (opt.type === 'select') {
@@ -380,7 +386,6 @@ function calcTotal() {
         
         let choice = opt.choices[selectedIndex];
         
-        // Remove os dois pontos do título para ficar mais limpo no resumo
         let cleanLabel = opt.label.replace(':', '');
         summaryText += `- <strong>${cleanLabel}:</strong> ${choice.label}<br>`;
         
@@ -400,7 +405,6 @@ function calcTotal() {
         finalPrice = (base * multiplier) + (extraM2 * multiplier) + extraFlat;
     }
 
-    // Atualiza o HTML do resumo e o Preço
     document.getElementById('modalSummary').innerHTML = summaryText;
     document.getElementById('modalTotalPrice').innerText = formatCurrencyProduct(finalPrice);
     
