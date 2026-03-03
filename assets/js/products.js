@@ -9,7 +9,7 @@ const arteOptions = {
     obs: '* NÃO CONFERIMOS ARQUIVOS ENVIADOS, CASO NÃO SEJA FEITA A CONTRATAÇÃO DA ARTE. Envie preferencialmente em PDFx1a, JPEG ou PNG alta resolução, CMYK, textos em curvas.',
     choices: [
         { label: 'Tenho o arquivo pronto (Upload no WhatsApp)', price: 0, isM2: false },
-        { label: 'Contratar criação [+R$ 40,00]', price: 40, isM2: false }
+        { label: 'Contratar criação', price: 40, isM2: false } // Preço oculto no texto
     ]
 };
 
@@ -190,10 +190,10 @@ const productsData = [
         image: 'assets/images/produtos/pacote-artes.jpg',
         options: [
             { id: 'pacote', label: 'Selecione o pacote:', type: 'radio', choices: [
-                {label: 'Pacote 10 Artes', price: 350, isM2: false}, 
-                {label: 'Pacote 20 Artes', price: 600, isM2: false}, 
-                {label: 'Pacote Mensal (27 artes/mês)', price: 1000, isM2: false}, 
-                {label: 'Pacote Trimestral (27 artes/mês)', price: 900, isM2: false}
+                {label: 'Pacote 10 Artes (R$ 350)', price: 350, isM2: false}, 
+                {label: 'Pacote 20 Artes (R$ 600)', price: 600, isM2: false}, 
+                {label: 'Pacote Mensal - 27 artes/mês (R$ 1000)', price: 1000, isM2: false}, 
+                {label: 'Pacote Trimestral - 27 artes/mês (R$ 900/mês)', price: 900, isM2: false}
             ] }
         ]
     }
@@ -268,23 +268,24 @@ function openModal(productId) {
     const modalBody = document.getElementById('modalBody');
     
     let dimensionsHTML = '';
+    // Inputs alterados para receber valores em CENTÍMETROS e iniciar em 0
     if (currentProduct.calcType === 'area') {
         dimensionsHTML = `
             <div class="form-row">
                 <div class="form-group">
-                    <label>Largura (metros)</label>
-                    <input type="number" id="calcW" value="1" min="0.1" step="0.1" onchange="calcTotal()">
+                    <label>Largura (cm)</label>
+                    <input type="number" id="calcW" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
                 </div>
                 <div class="form-group">
-                    <label>Altura (metros)</label>
-                    <input type="number" id="calcH" value="1" min="0.1" step="0.1" onchange="calcTotal()">
+                    <label>Altura (cm)</label>
+                    <input type="number" id="calcH" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
                 </div>
             </div>`;
     } else if (currentProduct.calcType === 'linear') {
         dimensionsHTML = `
             <div class="form-group">
-                <label>Largura Total (metros lineares)</label>
-                <input type="number" id="calcW" value="1" min="0.5" step="0.5" onchange="calcTotal()">
+                <label>Largura Total (cm)</label>
+                <input type="number" id="calcW" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
             </div>`;
     }
 
@@ -296,8 +297,8 @@ function openModal(productId) {
         if (opt.type === 'select') {
             optionsHTML += `<select id="opt_${optIndex}" onchange="calcTotal()">`;
             opt.choices.forEach((choice, choiceIndex) => {
-                let priceText = choice.price > 0 ? ` (+ R$ ${choice.price.toFixed(2)})` : '';
-                optionsHTML += `<option value="${choiceIndex}">${choice.label}${priceText}</option>`;
+                // Removemos o priceText para esconder o valor adicional do cliente
+                optionsHTML += `<option value="${choiceIndex}">${choice.label}</option>`;
             });
             optionsHTML += `</select></div>`;
         } else if (opt.type === 'radio') {
@@ -335,15 +336,24 @@ function closeModal() {
 function calcTotal() {
     if (!currentProduct) return;
     
-    let w = document.getElementById('calcW') ? parseFloat(document.getElementById('calcW').value) || 0 : 1;
-    let h = document.getElementById('calcH') ? parseFloat(document.getElementById('calcH').value) || 0 : 1;
+    // Pega os valores digitados em centímetros
+    let w_cm = document.getElementById('calcW') ? parseFloat(document.getElementById('calcW').value) || 0 : 0;
+    let h_cm = document.getElementById('calcH') ? parseFloat(document.getElementById('calcH').value) || 0 : 0;
     
-    let multiplier = 1;
+    let multiplier = 0;
+    
+    // Converte os centímetros para metros quadrados e aplica a regra do 1m² mínimo
     if (currentProduct.calcType === 'area') {
-        multiplier = w * h;
-        if(multiplier < 1 && multiplier > 0) multiplier = 1; // Mínimo de 1m² ou cobrança mínima gráfica
+        let areaM2 = (w_cm / 100) * (h_cm / 100);
+        if (w_cm > 0 && h_cm > 0) {
+            multiplier = areaM2 < 1 ? 1 : areaM2;
+        }
     } else if (currentProduct.calcType === 'linear') {
-        multiplier = w;
+        if (w_cm > 0) {
+            multiplier = w_cm / 100; // Metro linear
+        }
+    } else if (currentProduct.calcType === 'unit') {
+        multiplier = 1; // Unidades fixas como as cartelas A3/A4
     }
 
     let base = currentProduct.basePrice;
@@ -367,18 +377,32 @@ function calcTotal() {
     });
 
     let finalPrice = 0;
+    
+    // Se for pacote de artes
     if(currentProduct.calcType === 'variant') {
-        finalPrice = extraFlat; // Se for pacote, ignora a base 0 e pega o preço do rádio
-    } else {
+        finalPrice = extraFlat; 
+    } 
+    // Se for produto por metro, mas o cliente ainda não digitou os centímetros (multiplier = 0)
+    else if (multiplier === 0 && currentProduct.calcType !== 'unit') {
+        finalPrice = 0; 
+    } 
+    // Cálculo final: (base * m²) + (extra por m² * m²) + adicionais fixos (como arte)
+    else {
         finalPrice = (base * multiplier) + (extraM2 * multiplier) + extraFlat;
     }
 
     document.getElementById('modalTotalPrice').innerText = formatCurrencyProduct(finalPrice);
-    return { finalPrice, multiplier, w, h };
+    return { finalPrice, multiplier, w_cm, h_cm };
 }
 
 function confirmModalCart() {
     const calcData = calcTotal();
+    
+    // Evita adicionar ao carrinho se o preço estiver zerado (cliente esqueceu de por a medida)
+    if (calcData.finalPrice === 0) {
+        alert("Por favor, preencha as medidas do seu material antes de adicionar ao orçamento.");
+        return;
+    }
     
     // Concatena as escolhas para o nome do produto no carrinho
     let detailsStr = '';
@@ -392,15 +416,16 @@ function confirmModalCart() {
         detailsStr += ` | ${opt.choices[selectedIndex].label}`;
     });
 
+    // Registra o tamanho em centímetros no pedido do WhatsApp
     let sizeStr = '';
-    if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w}m x ${calcData.h}m)`;
-    else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w}m linear)`;
+    if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w_cm}cm x ${calcData.h_cm}cm)`;
+    else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w_cm}cm linear)`;
 
     const cartItem = {
-        id: currentProduct.id + '-' + Date.now(), // ID único para a configuração
+        id: currentProduct.id + '-' + Date.now(), 
         name: `${currentProduct.name} ${sizeStr} ${detailsStr}`,
         category: currentProduct.category,
-        basePrice: calcData.finalPrice, // O preço base no carrinho passa a ser o total já calculado desta peça
+        basePrice: calcData.finalPrice, 
         image: currentProduct.image
     };
 
