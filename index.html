@@ -7,14 +7,12 @@
     <meta name="keywords" content="gráfica, adesivos, banners, sinalização, toldos, fachadas, São Paulo, Mogi das Cruzes">
     <meta name="author" content="Vidal Design Solutions">
     
-    <!-- Open Graph -->
     <meta property="og:title" content="Vidal Design Solutions - Soluções em Comunicação Visual">
     <meta property="og:description" content="Materiais gráficos de qualidade com entrega rápida para todo o Brasil.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vidaldesignsolutions.com.br">
     <meta property="og:image" content="https://vidaldesignsolutions.com.br/logo.png">
     
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -25,23 +23,19 @@
     
     <title>Vidal Design Solutions | Comunicação Visual</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
     
-    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     
     <style>
-        /* Logo Styles - HEADER (logo_cabecalho.png) */
+        /* Logo Styles - HEADER */
         .logo-header {
             display: flex;
             align-items: center;
@@ -55,7 +49,7 @@
             object-fit: contain;
         }
         
-        /* Logo Styles - FOOTER (logo.png) */
+        /* Logo Styles - FOOTER */
         .logo-footer {
             display: flex;
             align-items: center;
@@ -70,23 +64,19 @@
             object-fit: contain;
         }
         
-        /* Category cards cursor pointer */
         .category-card {
             cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <!-- Logo HEADER (logo_cabecalho.png) -->
                 <a href="#" class="logo-header">
-                    <img src="logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
+                    <img src="assets/images/logo_cabecalho.png" alt="Vidal Design Solutions - Logo">
                 </a>
                 
-                <!-- Navigation -->
                 <nav class="nav-menu" id="navMenu">
                     <ul class="nav-list">
                         <li><a href="#home" class="nav-link active">Home</a></li>
@@ -97,7 +87,6 @@
                     </ul>
                 </nav>
                 
-                <!-- Actions -->
                 <div class="header-actions">
                     <a href="pages/carrinho.html" class="cart-btn" id="cartBtn">
                         <i class="fas fa-shopping-cart"></i>
@@ -116,7 +105,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="container">
@@ -157,8 +145,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-    <img src="assets/images/produtos/imagem-hero.jpg" alt="Vidal Design Solutions - Produto em Destaque" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);">
-</div>
+                    <img src="assets/images/imagem-hero.jpg" alt="Vidal Design Solutions - Produto em Destaque" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);" onerror="this.src='https://via.placeholder.com/600x450/1e3a8a/ffffff?text=Coloque+sua+imagem+aqui'">
                 </div>
             </div>
         </div>
@@ -169,7 +156,6 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
     <section class="categories" id="categorias">
         <div class="container">
             <div class="section-header">
@@ -224,28 +210,26 @@
                     <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" onclick="filterByCategory('papelaria')">
+                <div class="category-card" onclick="filterByCategory('social mídia')">
                     <div class="category-icon">
-                        <i class="fas fa-file-alt"></i>
+                        <i class="fas fa-share-alt"></i>
                     </div>
-                    <h3>Papelaria</h3>
-                    <p>Cartões, flyers, folders, envelopes</p>
-                    <span class="category-count">Ver produtos</span>
+                    <h3>Social Mídia</h3>
+                    <p>Criação de artes para redes sociais</p>
+                    <span class="category-count">Ver pacotes</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
     <section class="products" id="produtos">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Catálogo</span>
+                <span class="section-tag">Catálogo 2026</span>
                 <h2 class="section-title">Produtos em Destaque</h2>
-                <p class="section-subtitle">Clique para ver detalhes e orçamento</p>
+                <p class="section-subtitle">Clique para ver detalhes e configurar seu orçamento</p>
             </div>
             
-            <!-- Filter Buttons -->
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="adesivos">Adesivos</button>
@@ -255,21 +239,18 @@
                 <button class="filter-btn" data-filter="social mídia">Social Mídia</button>
             </div>
             
-            <!-- Products Grid -->
             <div class="products-grid" id="productsGrid">
-                <!-- Products will be loaded by JavaScript -->
-            </div>
+                </div>
             
             <div class="products-footer">
-                <a href="#" class="btn btn-outline">
-                    Ver Todos os Produtos
+                <a href="#contato" class="btn btn-outline">
+                    Fale Conosco
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
     <section class="process" id="como-funciona">
         <div class="container">
             <div class="section-header">
@@ -284,7 +265,7 @@
                         <i class="fas fa-mouse-pointer"></i>
                     </div>
                     <h3>Escolha o Produto</h3>
-                    <p>Navegue pelo catálogo e selecione o item desejado com as especificações</p>
+                    <p>Navegue pelo catálogo e configure as medidas exatas na calculadora</p>
                 </div>
                 
                 <div class="process-arrow">
@@ -296,8 +277,8 @@
                     <div class="step-icon">
                         <i class="fas fa-file-upload"></i>
                     </div>
-                    <h3>Envie sua Arte</h3>
-                    <p>Prepare seu arquivo conforme as especificações técnicas do produto</p>
+                    <h3>Detalhes da Arte</h3>
+                    <p>Selecione se já possui a arte pronta (PDFx1a) ou se deseja contratar a criação</p>
                 </div>
                 
                 <div class="process-arrow">
@@ -310,7 +291,7 @@
                         <i class="fas fa-calculator"></i>
                     </div>
                     <h3>Receba o Orçamento</h3>
-                    <p>Analisamos seu pedido e enviamos o valor final com prazo de entrega</p>
+                    <p>Revise seu carrinho e envie o pedido estruturado direto para nosso WhatsApp</p>
                 </div>
                 
                 <div class="process-arrow">
@@ -323,13 +304,12 @@
                         <i class="fas fa-check-circle"></i>
                     </div>
                     <h3>Aprovação e Produção</h3>
-                    <p>Após aprovação do orçamento, iniciamos a produção com entrega rápida</p>
+                    <p>Após nossa análise técnica e aprovação final, iniciamos a produção rápida</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="sobre">
         <div class="container">
             <div class="about-content">
@@ -377,39 +357,12 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content">
-                <div class="cta-text">
-                    <h2>Pronto para dar vida ao seu projeto?</h2>
-                    <p>Solicite um orçamento sem compromisso. Atendemos todo o brasil com entrega rápida.</p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="https://wa.me/5511968649673?text=Olá! Vim pelo site e gostaria de fazer um orçamento." 
-                       class="btn btn-white" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                        Falar no WhatsApp
-                    </a>
-                    <span class="cta-or">ou</span>
-                    <a href="tel:+5511968649673" class="btn btn-outline-white">
-                        <i class="fas fa-phone"></i>
-                        Ligar Agora
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer" id="contato">
         <div class="container">
             <div class="footer-grid">
-                <!-- Brand -->
                 <div class="footer-brand">
-                    <!-- Logo FOOTER (logo.png) -->
                     <div class="logo-footer">
-                        <img src="logo.png" alt="Vidal Design Solutions - Logo">
+                        <img src="assets/images/logo.png" alt="Vidal Design Solutions - Logo">
                     </div>
                     <p class="footer-description">
                         Soluções completas em comunicação visual desde 2007. 
@@ -424,7 +377,6 @@
                         </a>
                     </div>
                     
-                    <!-- Botões Extras -->
                     <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 250px;">
                         <a href="https://photos.app.goo.gl/HiRZfa4eNnUpwyca7" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); color: white; font-size: 0.85rem; transition: background 0.3s; text-decoration: none;">
                             <i class="fas fa-images" style="color: var(--accent);"></i> Nosso Álbum de Fotos
@@ -435,7 +387,6 @@
                     </div>
                 </div>
                 
-                <!-- Links -->
                 <div class="footer-links">
                     <h4>Links Rápidos</h4>
                     <ul>
@@ -446,20 +397,6 @@
                     </ul>
                 </div>
                 
-                <!-- Categories -->
-                <div class="footer-links">
-                    <h4>Categorias</h4>
-                    <ul>
-                        <li><a href="#" onclick="filterByCategory('adesivos'); return false;">Adesivos</a></li>
-                        <li><a href="#" onclick="filterByCategory('banners'); return false;">Banners e Lonas</a></li>
-                        <li><a href="#" onclick="filterByCategory('sinalizacao'); return false;">Sinalização</a></li>
-                        <li><a href="#" onclick="filterByCategory('toldos'); return false;">Toldos</a></li>
-                        <li><a href="#" onclick="filterByCategory('fachadas'); return false;">Fachadas</a></li>
-                        <li><a href="#" onclick="filterByCategory('social mídia'); return false;">Social Mídia</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact -->
                 <div class="footer-contact">
                     <h4>Contato</h4>
                     <ul class="contact-list">
@@ -498,36 +435,21 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 Vidal Design Solutions. Todos os direitos reservados.</p>
-            
+                <p>© 2026 Vidal Design Solutions. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5511968649673?text=Olá! Vim pelo site e gostaria de fazer um orçamento." 
-       class="whatsapp-float" target="_blank" id="whatsappFloat">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
-
-    <!-- Scripts -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/products.js"></script>
     <script src="assets/js/cart.js"></script>
+    <script src="assets/js/products.js"></script>
     
     <script>
-        // Função para filtrar produtos ao clicar nas categorias
         function filterByCategory(category) {
-            // Rola a tela até a sessão de produtos
             document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
-            
-            // Dispara o evento de filtro exatamente como os botões menores fazem
             window.dispatchEvent(new CustomEvent('filterProducts', { 
                 detail: { category: category } 
             }));
-            
-            // Atualiza o visual dos botões de filtro (marca o ativo)
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.getAttribute('data-filter') === category) {
