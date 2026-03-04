@@ -8,8 +8,9 @@ const arteOptions = {
     type: 'radio',
     obs: '* NÃO CONFERIMOS ARQUIVOS ENVIADOS, CASO NÃO SEJA FEITA A CONTRATAÇÃO DA ARTE. Envie preferencialmente em PDFx1a, JPEG ou PNG alta resolução, CMYK, textos em curvas.',
     choices: [
-        { label: 'Tenho o arquivo pronto (Upload no WhatsApp)', price: 0, isM2: false },
-        { label: 'Contratar criação', price: 40, isM2: false }
+        { label: 'Tenho o arquivo pronto (Upload no WhatsApp)', price: 0, isM2: false, isPerJob: true },
+        // isPerJob garante que os R$40 sejam cobrados 1x por lote, e não por cada unidade do lote
+        { label: 'Contratar criação', price: 40, isM2: false, isPerJob: true }
     ]
 };
 
@@ -268,6 +269,8 @@ function openModal(productId) {
     const modalBody = document.getElementById('modalBody');
     
     let dimensionsHTML = '';
+    
+    // Inserção inteligente dos campos de medida e de QUANTIDADE
     if (currentProduct.calcType === 'area') {
         dimensionsHTML = `
             <div class="form-row">
@@ -279,12 +282,29 @@ function openModal(productId) {
                     <label>Altura (cm)</label>
                     <input type="number" id="calcH" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
                 </div>
+            </div>
+            <div class="form-group" style="margin-top: -0.5rem;">
+                <label style="color: var(--primary); font-weight: 700;">Quantidade de Peças</label>
+                <input type="number" id="calcQty" value="1" min="1" step="1" onchange="calcTotal()" onkeyup="calcTotal()" style="border-color: var(--primary);">
             </div>`;
     } else if (currentProduct.calcType === 'linear') {
         dimensionsHTML = `
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Largura Total (cm)</label>
+                    <input type="number" id="calcW" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
+                </div>
+                <div class="form-group">
+                    <label style="color: var(--primary); font-weight: 700;">Quantidade</label>
+                    <input type="number" id="calcQty" value="1" min="1" step="1" onchange="calcTotal()" onkeyup="calcTotal()" style="border-color: var(--primary);">
+                </div>
+            </div>`;
+    } else {
+        // Para produtos Unitários e Pacotes de Artes
+        dimensionsHTML = `
             <div class="form-group">
-                <label>Largura Total (cm)</label>
-                <input type="number" id="calcW" value="0" min="0" step="1" onchange="calcTotal()" onkeyup="calcTotal()">
+                <label style="color: var(--primary); font-weight: 700;">Quantidade de Lotes/Pacotes</label>
+                <input type="number" id="calcQty" value="1" min="1" step="1" onchange="calcTotal()" onkeyup="calcTotal()" style="border-color: var(--primary);">
             </div>`;
     }
 
@@ -322,130 +342,7 @@ function openModal(productId) {
         </div>
         
         <div id="modalSummary" style="background: var(--gray-50); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200); margin-top: 1.5rem; font-size: 0.9rem; color: var(--gray-700); line-height: 1.5;">
-        </div> <div class="modal-footer">
-            <div class="modal-total">Total Estimado: <span id="modalTotalPrice">R$ 0,00</span></div>
-            <button class="btn btn-primary" onclick="confirmModalCart()">Adicionar ao Orçamento</button>
-        </div>
-    `;
-    
-    document.getElementById('productModal').classList.remove('hidden');
-    calcTotal();
-}
+        </div> 
 
-function closeModal() {
-    document.getElementById('productModal').classList.add('hidden');
-}
-
-function calcTotal() {
-    if (!currentProduct) return;
-    
-    let w_cm = document.getElementById('calcW') ? parseFloat(document.getElementById('calcW').value) || 0 : 0;
-    let h_cm = document.getElementById('calcH') ? parseFloat(document.getElementById('calcH').value) || 0 : 0;
-    
-    let multiplier = 0;
-    let summaryText = `<strong>Resumo da seleção:</strong><br>`;
-    
-    // Constrói resumo das medidas e aplica o novo limite de 0.5m²
-    if (currentProduct.calcType === 'area') {
-        let areaM2 = (w_cm / 100) * (h_cm / 100);
-        summaryText += `- <strong>Medidas:</strong> ${w_cm}cm x ${h_cm}cm<br>`;
-        if (w_cm > 0 && h_cm > 0) {
-            multiplier = areaM2 < 0.5 ? 0.5 : areaM2; 
-        }
-    } else if (currentProduct.calcType === 'linear') {
-        summaryText += `- <strong>Largura:</strong> ${w_cm}cm lineares<br>`;
-        if (w_cm > 0) {
-            multiplier = w_cm / 100;
-        }
-    } else if (currentProduct.calcType === 'unit') {
-        multiplier = 1;
-        summaryText += `- <strong>Formato:</strong> Unidade/Pacote<br>`;
-    }
-
-    let base = currentProduct.basePrice;
-    let extraM2 = 0;
-    let extraFlat = 0;
-
-    currentProduct.options.forEach((opt, optIndex) => {
-        let selectedIndex = 0;
-        if (opt.type === 'select') {
-            selectedIndex = parseInt(document.getElementById(`opt_${optIndex}`).value);
-        } else if (opt.type === 'radio') {
-            let radios = document.getElementsByName(`opt_${optIndex}`);
-            for(let r of radios) { if(r.checked) selectedIndex = parseInt(r.value); }
-        }
-        
-        let choice = opt.choices[selectedIndex];
-        
-        let cleanLabel = opt.label.replace(':', '');
-        summaryText += `- <strong>${cleanLabel}:</strong> ${choice.label}<br>`;
-        
-        if (choice.price > 0) {
-            if (choice.isM2) extraM2 += choice.price;
-            else extraFlat += choice.price;
-        }
-    });
-
-    let finalPrice = 0;
-    
-    if(currentProduct.calcType === 'variant') {
-        finalPrice = extraFlat; 
-    } else if (multiplier === 0 && currentProduct.calcType !== 'unit') {
-        finalPrice = 0; 
-    } else {
-        finalPrice = (base * multiplier) + (extraM2 * multiplier) + extraFlat;
-    }
-
-    document.getElementById('modalSummary').innerHTML = summaryText;
-    document.getElementById('modalTotalPrice').innerText = formatCurrencyProduct(finalPrice);
-    
-    return { finalPrice, multiplier, w_cm, h_cm };
-}
-
-function confirmModalCart() {
-    const calcData = calcTotal();
-    
-    if (calcData.finalPrice === 0) {
-        alert("Por favor, preencha as medidas do seu material antes de adicionar ao orçamento.");
-        return;
-    }
-    
-    let detailsStr = '';
-    currentProduct.options.forEach((opt, optIndex) => {
-        let selectedIndex = 0;
-        if (opt.type === 'select') selectedIndex = parseInt(document.getElementById(`opt_${optIndex}`).value);
-        else if (opt.type === 'radio') {
-            let radios = document.getElementsByName(`opt_${optIndex}`);
-            for(let r of radios) { if(r.checked) selectedIndex = parseInt(r.value); }
-        }
-        detailsStr += ` | ${opt.choices[selectedIndex].label}`;
-    });
-
-    let sizeStr = '';
-    if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w_cm}cm x ${calcData.h_cm}cm)`;
-    else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w_cm}cm linear)`;
-
-    const cartItem = {
-        id: currentProduct.id + '-' + Date.now(), 
-        name: `${currentProduct.name} ${sizeStr} ${detailsStr}`,
-        category: currentProduct.category,
-        basePrice: calcData.finalPrice, 
-        image: currentProduct.image
-    };
-
-    if (typeof addToCart === 'function') {
-        addToCart(cartItem);
-        closeModal();
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    initModalStructure();
-    renderProducts(productsData);
-    
-    window.addEventListener('filterProducts', (e) => {
-        const category = e.detail.category;
-        if (category === 'all') renderProducts(productsData);
-        else renderProducts(productsData.filter(p => p.category === category));
-    });
-});
+        <div class="modal-footer">
+            <div class="modal-total">Total do Lote: <span id="modalTotalPrice">R$ 0,00</spa
