@@ -9,7 +9,6 @@ const arteOptions = {
     obs: '* NÃO CONFERIMOS ARQUIVOS ENVIADOS, CASO NÃO SEJA FEITA A CONTRATAÇÃO DA ARTE. Envie preferencialmente em PDFx1a, JPEG ou PNG alta resolução, CMYK, textos em curvas.',
     choices: [
         { label: 'Tenho o arquivo pronto (Upload no WhatsApp)', price: 0, isM2: false, isPerJob: true },
-        // isPerJob garante que os R$40 sejam cobrados 1x por lote, e não por cada unidade do lote
         { label: 'Contratar criação', price: 40, isM2: false, isPerJob: true }
     ]
 };
@@ -345,4 +344,141 @@ function openModal(productId) {
         </div> 
 
         <div class="modal-footer">
-            <div class="modal-total">Total do Lote: <span id="modalTotalPrice">R$ 0,00</spa
+            <div class="modal-total">Total do Lote: <span id="modalTotalPrice">R$ 0,00</span></div>
+            <button class="btn btn-primary" onclick="confirmModalCart()">Adicionar ao Orçamento</button>
+        </div>
+    `;
+    
+    document.getElementById('productModal').classList.remove('hidden');
+    calcTotal();
+}
+
+function closeModal() {
+    document.getElementById('productModal').classList.add('hidden');
+}
+
+function calcTotal() {
+    if (!currentProduct) return;
+    
+    let w_cm = document.getElementById('calcW') ? parseFloat(document.getElementById('calcW').value) || 0 : 0;
+    let h_cm = document.getElementById('calcH') ? parseFloat(document.getElementById('calcH').value) || 0 : 0;
+    let qty = document.getElementById('calcQty') ? parseInt(document.getElementById('calcQty').value) || 1 : 1;
+    
+    if (qty < 1) qty = 1; // Trava contra números negativos
+    
+    let multiplier = 0;
+    let summaryText = `<strong>Resumo da seleção:</strong><br>`;
+    
+    // Cálculo da área e aplicação do Mínimo de 0.5m² PARA O LOTE TODO
+    if (currentProduct.calcType === 'area') {
+        let areaM2 = (w_cm / 100) * (h_cm / 100);
+        let totalAreaLote = areaM2 * qty;
+        
+        summaryText += `- <strong>Medidas:</strong> ${w_cm}cm x ${h_cm}cm<br>`;
+        summaryText += `- <strong>Quantidade:</strong> ${qty} peça(s)<br>`;
+        
+        if (w_cm > 0 && h_cm > 0) {
+            multiplier = totalAreaLote < 0.5 ? 0.5 : totalAreaLote; 
+        }
+    } else if (currentProduct.calcType === 'linear') {
+        let totalLinear = (w_cm / 100) * qty;
+        summaryText += `- <strong>Largura:</strong> ${w_cm}cm lineares<br>`;
+        summaryText += `- <strong>Quantidade:</strong> ${qty} peça(s)<br>`;
+        if (w_cm > 0) {
+            multiplier = totalLinear;
+        }
+    } else if (currentProduct.calcType === 'unit' || currentProduct.calcType === 'variant') {
+        multiplier = qty;
+        summaryText += `- <strong>Quantidade:</strong> ${qty} Lote/Pacote(s)<br>`;
+    }
+
+    let base = currentProduct.basePrice;
+    let extraM2 = 0;
+    let extraFlatPerPiece = 0;
+    let extraFlatPerJob = 0;
+
+    currentProduct.options.forEach((opt, optIndex) => {
+        let selectedIndex = 0;
+        if (opt.type === 'select') {
+            selectedIndex = parseInt(document.getElementById(`opt_${optIndex}`).value);
+        } else if (opt.type === 'radio') {
+            let radios = document.getElementsByName(`opt_${optIndex}`);
+            for(let r of radios) { if(r.checked) selectedIndex = parseInt(r.value); }
+        }
+        
+        let choice = opt.choices[selectedIndex];
+        
+        let cleanLabel = opt.label.replace(':', '');
+        summaryText += `- <strong>${cleanLabel}:</strong> ${choice.label}<br>`;
+        
+        if (choice.price > 0) {
+            if (choice.isM2) extraM2 += choice.price;
+            else if (choice.isPerJob) extraFlatPerJob += choice.price; 
+            else extraFlatPerPiece += choice.price; 
+        }
+    });
+
+    let finalPrice = 0;
+    
+    if (currentProduct.calcType === 'variant') {
+        finalPrice = (extraFlatPerPiece * qty) + extraFlatPerJob; 
+    } else if (multiplier === 0 && currentProduct.calcType !== 'unit' && currentProduct.calcType !== 'variant') {
+        finalPrice = 0; 
+    } else {
+        finalPrice = (base * multiplier) + (extraM2 * multiplier) + (extraFlatPerPiece * qty) + extraFlatPerJob;
+    }
+
+    document.getElementById('modalSummary').innerHTML = summaryText;
+    document.getElementById('modalTotalPrice').innerText = formatCurrencyProduct(finalPrice);
+    
+    return { finalPrice, multiplier, w_cm, h_cm, qty };
+}
+
+function confirmModalCart() {
+    const calcData = calcTotal();
+    
+    if ((currentProduct.calcType === 'area' || currentProduct.calcType === 'linear') && (calcData.w_cm === 0 || (currentProduct.calcType === 'area' && calcData.h_cm === 0))) {
+        alert("Por favor, preencha as medidas do seu material antes de adicionar ao orçamento.");
+        return;
+    }
+    
+    let detailsStr = '';
+    currentProduct.options.forEach((opt, optIndex) => {
+        let selectedIndex = 0;
+        if (opt.type === 'select') selectedIndex = parseInt(document.getElementById(`opt_${optIndex}`).value);
+        else if (opt.type === 'radio') {
+            let radios = document.getElementsByName(`opt_${optIndex}`);
+            for(let r of radios) { if(r.checked) selectedIndex = parseInt(r.value); }
+        }
+        detailsStr += ` | ${opt.choices[selectedIndex].label}`;
+    });
+
+    let sizeStr = '';
+    if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w_cm}cm x ${calcData.h_cm}cm) - Lote c/ ${calcData.qty} unid.`;
+    else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w_cm}cm linear) - Lote c/ ${calcData.qty} unid.`;
+    else sizeStr = `- Lote/Pacote c/ ${calcData.qty} unid.`;
+
+    const cartItem = {
+        id: currentProduct.id + '-' + Date.now(), 
+        name: `${currentProduct.name} ${sizeStr} ${detailsStr}`,
+        category: currentProduct.category,
+        basePrice: calcData.finalPrice, 
+        image: currentProduct.image
+    };
+
+    if (typeof addToCart === 'function') {
+        addToCart(cartItem);
+        closeModal();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initModalStructure();
+    renderProducts(productsData);
+    
+    window.addEventListener('filterProducts', (e) => {
+        const category = e.detail.category;
+        if (category === 'all') renderProducts(productsData);
+        else renderProducts(productsData.filter(p => p.category === category));
+    });
+});
