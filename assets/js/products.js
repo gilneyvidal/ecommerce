@@ -14,6 +14,7 @@ const arteOptions = {
 };
 
 const productsData = [
+    // --- ADESIVOS ---
     {
         id: 'prod-adesivo-branco',
         name: 'Adesivo Branco Personalizado',
@@ -112,6 +113,158 @@ const productsData = [
         image: 'assets/images/produtos/cartela-a3-dtf.jpg',
         options: [ arteOptions ]
     },
+
+    // --- PAPELARIA (NOVO) ---
+    {
+        id: 'prod-cv-brilho-4x4',
+        name: 'Cartão de Visita Brilho (4x4)',
+        category: 'papelaria',
+        description: '88x48mm em Couché Brilho 250g - 4x4 (Frente e Verso Coloridos) - Verniz Total Brilho Frente - Refile. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/cartao-visita-brilho-4x4.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '500 unidades', price: 79.49, isM2: false}, 
+                {label: '1.000 unidades', price: 95.99, isM2: false}, 
+                {label: '3.000 unidades', price: 247.49, isM2: false}, 
+                {label: '4.000 unidades', price: 323.99, isM2: false}, 
+                {label: '5.000 unidades', price: 395.99, isM2: false}, 
+                {label: '10.000 unidades', price: 764.99, isM2: false}, 
+                {label: '20.000 unidades', price: 1496.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-cv-brilho-4x0',
+        name: 'Cartão de Visita Brilho (4x0)',
+        category: 'papelaria',
+        description: '88x48mm em Couché Brilho 250g - 4x0 (Apenas Frente Colorida) - Verniz Total Brilho Frente - Refile. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/cartao-visita-brilho-4x0.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '100 unidades', price: 61.49, isM2: false}, 
+                {label: '500 unidades', price: 62.99, isM2: false}, 
+                {label: '1.000 unidades', price: 83.99, isM2: false}, 
+                {label: '2.000 unidades', price: 148.49, isM2: false}, 
+                {label: '3.000 unidades', price: 211.49, isM2: false}, 
+                {label: '4.000 unidades', price: 274.49, isM2: false}, 
+                {label: '5.000 unidades', price: 334.49, isM2: false}, 
+                {label: '10.000 unidades', price: 640.49, isM2: false}, 
+                {label: '20.000 unidades', price: 1244.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-cv-fosco-4x4',
+        name: 'Cartão de Visita Fosco c/ Verniz (4x4)',
+        category: 'papelaria',
+        description: '88x48mm em Couché Fosco 300g - 4x4 - Laminação Fosca e Verniz Localizado Frente e Verso - Refile. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/cartao-visita-fosco.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '100 unidades', price: 128.99, isM2: false}, 
+                {label: '500 unidades', price: 133.49, isM2: false}, 
+                {label: '1.000 unidades', price: 161.99, isM2: false}, 
+                {label: '5.000 unidades', price: 710.99, isM2: false}, 
+                {label: '10.000 unidades', price: 1381.49, isM2: false}, 
+                {label: '20.000 unidades', price: 2702.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-folheto-10x14-4x0',
+        name: 'Folheto 10x14cm (4x0)',
+        category: 'papelaria',
+        description: '100x140mm em Couché Brilho 90g - 4x0 (Apenas Frente Colorida) - Sem Enobrecimento - Refile. Prazo: 2 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/folheto-10x14-4x0.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1.000 unidades', price: 145.49, isM2: false}, 
+                {label: '2.500 unidades', price: 203.99, isM2: false}, 
+                {label: '5.000 unidades', price: 308.99, isM2: false}, 
+                {label: '10.000 unidades', price: 551.99, isM2: false}, 
+                {label: '20.000 unidades', price: 1069.49, isM2: false}, 
+                {label: '30.000 unidades', price: 1586.99, isM2: false}, 
+                {label: '50.000 unidades', price: 2612.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-folheto-10x14-4x4',
+        name: 'Folheto 10x14cm (4x4)',
+        category: 'papelaria',
+        description: '100x140mm em Couché Brilho 90g - 4x4 (Frente e Verso Coloridos) - Sem Enobrecimento - Refile. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/folheto-10x14-4x4.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1.000 unidades', price: 167.99, isM2: false}, 
+                {label: '2.500 unidades', price: 224.99, isM2: false}, 
+                {label: '5.000 unidades', price: 350.99, isM2: false}, 
+                {label: '10.000 unidades', price: 611.99, isM2: false}, 
+                {label: '20.000 unidades', price: 1189.49, isM2: false}, 
+                {label: '30.000 unidades', price: 1768.49, isM2: false}, 
+                {label: '50.000 unidades', price: 2915.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-folheto-14x20-4x0',
+        name: 'Folheto 14x20cm (4x0)',
+        category: 'papelaria',
+        description: '140x200mm em Couché Brilho 90g - 4x0 (Apenas Frente Colorida) - Sem Enobrecimento - Refile. Prazo: 2 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/folheto-14x20-4x0.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1.000 unidades', price: 257.99, isM2: false}, 
+                {label: '2.500 unidades', price: 374.99, isM2: false}, 
+                {label: '5.000 unidades', price: 584.99, isM2: false}, 
+                {label: '10.000 unidades', price: 1069.49, isM2: false}, 
+                {label: '20.000 unidades', price: 2096.99, isM2: false}, 
+                {label: '30.000 unidades', price: 3130.49, isM2: false}, 
+                {label: '50.000 unidades', price: 5174.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-folheto-14x20-4x4',
+        name: 'Folheto 14x20cm (4x4)',
+        category: 'papelaria',
+        description: '140x200mm em Couché Brilho 90g - 4x4 (Frente e Verso Coloridos) - Sem Enobrecimento - Refile. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/folheto-14x20-4x4.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1.000 unidades', price: 302.99, isM2: false}, 
+                {label: '2.500 unidades', price: 418.49, isM2: false}, 
+                {label: '5.000 unidades', price: 668.99, isM2: false}, 
+                {label: '10.000 unidades', price: 1189.49, isM2: false}, 
+                {label: '20.000 unidades', price: 2338.49, isM2: false}, 
+                {label: '30.000 unidades', price: 3491.99, isM2: false}, 
+                {label: '50.000 unidades', price: 5780.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+
+    // --- BANNERS E LONAS ---
     {
         id: 'prod-banner-440g',
         name: 'Banner 440g - Lona Impressa',
@@ -153,6 +306,65 @@ const productsData = [
         ]
     },
     {
+        id: 'prod-wind-banner-p',
+        name: 'Wind Banner Completo (P)',
+        category: 'banners',
+        description: 'Wind Banner tamanho P (650x1900mm) em Tecido Poliéster 98g - 4x4. Impressão Ultra HD Sublimática - Dupla-Face Costurado. Acompanha Base Plástica e Haste Desmontável Curva. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/wind-banner-p.jpg',
+        options: [
+            { id: 'modelo', label: 'Modelo da Bandeira:', type: 'select', choices: [{label: 'Ângulo', price: 0}, {label: 'Faca', price: 0}, {label: 'Pena', price: 0}, {label: 'Retangular', price: 0}, {label: 'Vela', price: 0}] },
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1 unidade', price: 224.99, isM2: false}, 
+                {label: '3 unidades', price: 644.99, isM2: false}, 
+                {label: '5 unidades', price: 1064.99, isM2: false}, 
+                {label: '10 unidades', price: 2114.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-wind-banner-m',
+        name: 'Wind Banner Completo (M)',
+        category: 'banners',
+        description: 'Wind Banner tamanho M (650x2450mm) em Tecido Poliéster 98g - 4x4. Impressão Ultra HD Sublimática - Dupla-Face Costurado. Acompanha Base Plástica e Haste Desmontável Curva. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/wind-banner-m.jpg',
+        options: [
+            { id: 'modelo', label: 'Modelo da Bandeira:', type: 'select', choices: [{label: 'Ângulo', price: 0}, {label: 'Faca', price: 0}, {label: 'Pena', price: 0}, {label: 'Retangular', price: 0}, {label: 'Vela', price: 0}] },
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1 unidade', price: 254.99, isM2: false}, 
+                {label: '3 unidades', price: 734.99, isM2: false}, 
+                {label: '5 unidades', price: 1214.99, isM2: false}, 
+                {label: '10 unidades', price: 2414.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-wind-banner-g',
+        name: 'Wind Banner Completo (G)',
+        category: 'banners',
+        description: 'Wind Banner tamanho G (650x3000mm) em Tecido Poliéster 98g - 4x4. Impressão Ultra HD Sublimática - Dupla-Face Costurado. Acompanha Base Plástica e Haste Desmontável Curva. Prazo: 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/wind-banner-g.jpg',
+        options: [
+            { id: 'modelo', label: 'Modelo da Bandeira:', type: 'select', choices: [{label: 'Ângulo', price: 0}, {label: 'Faca', price: 0}, {label: 'Pena', price: 0}, {label: 'Retangular', price: 0}, {label: 'Vela', price: 0}] },
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1 unidade', price: 284.99, isM2: false}, 
+                {label: '3 unidades', price: 824.99, isM2: false}, 
+                {label: '5 unidades', price: 1364.99, isM2: false}, 
+                {label: '10 unidades', price: 2714.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+
+    // --- TOLDOS ---
+    {
         id: 'prod-toldo-retratil',
         name: 'Toldo Retrátil / Cortina',
         category: 'toldos',
@@ -180,6 +392,56 @@ const productsData = [
             { id: 'projecao', label: 'Projeção:', type: 'select', choices: [{label: 'Padrão 1 metro', price:0}, {label: 'Outro (Ajuste no atendimento)', price:0}] }
         ]
     },
+
+    // --- VESTUÁRIO (NOVO) ---
+    {
+        id: 'prod-camiseta-dryfit',
+        name: 'Camiseta Dry Fit Masculina',
+        category: 'vestuario',
+        description: 'Modelo: Gola Redonda - Tecido Dry Fit. Confortável e de alta qualidade. Informe no WhatsApp a distribuição dos tamanhos desejados caso seja um pacote.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/camiseta-dry-fit.jpg',
+        options: [
+            { id: 'tamanho_principal', label: 'Tamanho Principal (ou variados no Whats):', type: 'select', choices: [{label: 'Tamanhos Variados (Informar no WhatsApp)', price:0}, {label: 'P', price:0}, {label: 'M', price:0}, {label: 'G', price:0}, {label: 'GG', price:0}, {label: 'XL1', price:0}, {label: 'XL2', price:0}, {label: 'XL3', price:0}, {label: 'XL4', price:0}] },
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1 unidade', price: 52.49, isM2: false}, 
+                {label: '5 unidades', price: 260.99, isM2: false}, 
+                {label: '10 unidades', price: 520.49, isM2: false}, 
+                {label: '20 unidades', price: 1037.99, isM2: false}, 
+                {label: '30 unidades', price: 1552.49, isM2: false}, 
+                {label: '40 unidades', price: 2063.99, isM2: false}, 
+                {label: '50 unidades', price: 2572.49, isM2: false}, 
+                {label: '100 unidades', price: 5129.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-moletom-canguru',
+        name: 'Moletom Canguru (Unissex)',
+        category: 'vestuario',
+        description: 'Modelo: Canguru Unissex - Tecido Moletom Flanelado quentinho e premium. Informe no WhatsApp a distribuição dos tamanhos desejados caso seja um pacote.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/moletom-canguru.jpg',
+        options: [
+            { id: 'tamanho_principal', label: 'Tamanho Principal (ou variados no Whats):', type: 'select', choices: [{label: 'Tamanhos Variados (Informar no WhatsApp)', price:0}, {label: 'P', price:0}, {label: 'M', price:0}, {label: 'G', price:0}, {label: 'GG', price:0}, {label: 'XL1', price:0}, {label: 'XL2', price:0}, {label: 'XL3', price:0}, {label: 'XL4', price:0}] },
+            { id: 'pacote', label: 'Selecione a quantidade:', type: 'select', choices: [
+                {label: '1 unidade', price: 130.49, isM2: false}, 
+                {label: '5 unidades', price: 628.49, isM2: false}, 
+                {label: '10 unidades', price: 1250.99, isM2: false}, 
+                {label: '20 unidades', price: 2495.99, isM2: false}, 
+                {label: '30 unidades', price: 3740.99, isM2: false}, 
+                {label: '40 unidades', price: 4985.99, isM2: false}, 
+                {label: '50 unidades', price: 6226.49, isM2: false}, 
+                {label: '100 unidades', price: 12449.99, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+
+    // --- SOCIAL MÍDIA ---
     {
         id: 'prod-pacote-artes',
         name: 'Pacote de Artes - Redes Sociais',
@@ -422,7 +684,7 @@ function calcTotal() {
     
     // Matemática final blindada
     if (currentProduct.calcType === 'variant') {
-        // Se for um pacote de artes (variantes de preço fixo que substituem a base)
+        // Se for um pacote de artes ou itens engessados de papelaria/vestuário
         finalPrice = (extraFlatPerPiece * qty) + extraFlatPerJob; 
     } else if (multiplier === 0 && currentProduct.calcType !== 'unit' && currentProduct.calcType !== 'variant') {
         // Cliente ainda não preencheu largura/altura
