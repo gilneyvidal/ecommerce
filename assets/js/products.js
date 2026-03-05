@@ -114,7 +114,110 @@ const productsData = [
         options: [ arteOptions ]
     },
 
-    // --- PAPELARIA (NOVO) ---
+    // --- LINHA AUTOMOTIVA (NOVO) ---
+    {
+        id: 'prod-auto-limpeza',
+        name: 'Acessórios p/ Limpeza Automotiva',
+        category: 'automotivo',
+        description: 'Microfibras premium com corte a laser, aplicadores de espuma e filme stretch para estéticas automotivas e lava-rápidos. Qualidade superior para proteção e cuidado do veículo. Prazo: 2 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/limpeza-automotiva.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione o Item (Preço ref. Unidade):', type: 'select', choices: [
+                {label: 'Microfibra Corte Laser (40x40cm - 330GSM)', price: 10.80, isM2: false}, 
+                {label: 'Microfibra Corte Laser (40x60cm)', price: 14.95, isM2: false}, 
+                {label: 'Microfibra Vidro (40x40cm - 250GSM)', price: 14.95, isM2: false}, 
+                {label: 'Microfibra Secagem (47x87cm - 370GSM)', price: 38.95, isM2: false}, 
+                {label: 'Aplicador de Espuma', price: 3.30, isM2: false}, 
+                {label: 'Filme Stretch', price: 9.75, isM2: false}
+            ] }
+        ]
+    },
+    {
+        id: 'prod-auto-tapetes',
+        name: 'Tapetes de Papel Automotivo',
+        category: 'automotivo',
+        description: 'Tapetes de papel de alta gramatura (Kraft e Strong) para proteção do assoalho. Pacotes com 4kg (aprox. 220 unidades). Prazo: 2 a 3 dias úteis + frete.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/tapetes-papel.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a quantidade de pacotes:', type: 'select', choices: [
+                {label: 'Até 99 pacotes (Preço ref. 1 Pacote c/ 4kg)', price: 64.50, isM2: false}, 
+                {label: 'Acima de 100 pacotes (Preço ref. 1 Pacote c/ 4kg)', price: 58.50, isM2: false}
+            ] }
+        ]
+    },
+    {
+        id: 'prod-auto-perfume',
+        name: 'Perfumes Automotivos - Aroma Driver',
+        category: 'automotivo',
+        description: 'Essências premium Aroma Driver. Disponível na versão 50ml ou Personalizados (25ml) com a marca do seu lava-rápido ou concessionária. Prazo personalizados: 11 dias úteis.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/perfume-aroma-driver.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione a opção:', type: 'select', choices: [
+                {label: 'Aroma Driver 50ml (Avulso)', price: 52.50, isM2: false}, 
+                {label: 'Aroma Driver 50ml (Caixa com 6 unidades)', price: 225.00, isM2: false}, 
+                {label: 'Personalizado Frente Liso 25ml - 12 unidades', price: 324.00, isM2: false}, 
+                {label: 'Personalizado Frente Liso 25ml - 36 unidades', price: 864.00, isM2: false}, 
+                {label: 'Personalizado Frente Liso 25ml - 60 unidades', price: 1260.00, isM2: false}, 
+                {label: 'Personalizado Frente & Verso 25ml - 12 unidades', price: 360.00, isM2: false}, 
+                {label: 'Personalizado Frente & Verso 25ml - 36 unidades', price: 972.00, isM2: false}, 
+                {label: 'Personalizado Frente & Verso 25ml - 60 unidades', price: 1440.00, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-auto-aromatizantes',
+        name: 'Aromatizantes de Ambiente (Cheirinhos)',
+        category: 'automotivo',
+        description: 'Cheirinhos automotivos em diversos formatos. Linha Padrão, Standard (Personalizado) e Premium (Recorte especial). Ideal para brindes e revenda. Prazo de confecção: aprox. 10 a 12 dias úteis.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/aromatizantes.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione o Lote/Pacote:', type: 'select', choices: [
+                {label: 'Genoas + Pineflags (Caixa c/ 50)', price: 105.00, isM2: false}, 
+                {label: 'Padrão Formatado - S/ Essência (100 unidades)', price: 36.00, isM2: false}, 
+                {label: 'Padrão Formatado - C/ Essência (100 unidades)', price: 48.00, isM2: false}, 
+                {label: 'Padrão Formatado - S/ Essência (1.000 unidades)', price: 330.00, isM2: false}, 
+                {label: 'Padrão Formatado - C/ Essência (1.000 unidades)', price: 450.00, isM2: false}, 
+                {label: 'Personalizado Standard - S/ Essência (500 unidades)', price: 270.00, isM2: false}, 
+                {label: 'Personalizado Standard - C/ Essência (500 unidades)', price: 345.00, isM2: false}, 
+                {label: 'Personalizado Standard - S/ Essência (1.000 unidades)', price: 390.00, isM2: false}, 
+                {label: 'Personalizado Standard - C/ Essência (1.000 unidades)', price: 525.00, isM2: false}, 
+                {label: 'Premium Recorte Especial (5,5cm) - C/ Essência (100 unidades)', price: 202.50, isM2: false}, 
+                {label: 'Premium Recorte Especial (6,5cm) - C/ Essência (100 unidades)', price: 225.00, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+    {
+        id: 'prod-auto-lixocar',
+        name: 'Lixocar Automotivo (Lixeiras)',
+        category: 'automotivo',
+        description: 'Lixeiras em TNT para câmbio automotivo. Opções lisas, Silk, Flex ou Personalizadas com impressão Digital e Serigráfica. Ideal para propaganda da sua marca.',
+        calcType: 'variant',
+        basePrice: 0,
+        image: 'assets/images/produtos/lixocar.jpg',
+        options: [
+            { id: 'pacote', label: 'Selecione o Lote/Pacote:', type: 'select', choices: [
+                {label: 'Estepe Liso (Pacote c/ 100 unidades)', price: 21.00, isM2: false}, 
+                {label: 'Estepe Silk Pronto (Pacote c/ 100 unidades)', price: 34.50, isM2: false}, 
+                {label: 'Estepe Flex Pronto (Pacote c/ 100 unidades)', price: 31.50, isM2: false}, 
+                {label: 'Personalizado Digital S/ Limite Cores (Pacote c/ 100 unidades)', price: 225.00, isM2: false}, 
+                {label: 'Personalizado Serigráfica 1 Cor (Pacote c/ 1.000 unidades)', price: 360.00, isM2: false}, 
+                {label: 'Personalizado Serigráfica 2 Cores (Pacote c/ 1.000 unidades)', price: 540.00, isM2: false}
+            ] },
+            arteOptions
+        ]
+    },
+
+    // --- PAPELARIA ---
     {
         id: 'prod-cv-brilho-4x4',
         name: 'Cartão de Visita Brilho (4x4)',
@@ -393,7 +496,7 @@ const productsData = [
         ]
     },
 
-    // --- VESTUÁRIO (NOVO) ---
+    // --- VESTUÁRIO ---
     {
         id: 'prod-camiseta-dryfit',
         name: 'Camiseta Dry Fit Masculina',
@@ -684,13 +787,10 @@ function calcTotal() {
     
     // Matemática final blindada
     if (currentProduct.calcType === 'variant') {
-        // Se for um pacote de artes ou itens engessados de papelaria/vestuário
         finalPrice = (extraFlatPerPiece * qty) + extraFlatPerJob; 
     } else if (multiplier === 0 && currentProduct.calcType !== 'unit' && currentProduct.calcType !== 'variant') {
-        // Cliente ainda não preencheu largura/altura
         finalPrice = 0; 
     } else {
-        // Preço Base do Lote + Adicionais de M² + Adicionais por Peça + Adicionais por Lote (Arte)
         finalPrice = (base * multiplier) + (extraM2 * multiplier) + (extraFlatPerPiece * qty) + extraFlatPerJob;
     }
 
@@ -720,7 +820,6 @@ function confirmModalCart() {
         detailsStr += ` | ${opt.choices[selectedIndex].label}`;
     });
 
-    // Registra a quantidade informada no título do item do carrinho para o Whats
     let sizeStr = '';
     if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w_cm}cm x ${calcData.h_cm}cm) - Lote c/ ${calcData.qty} unid.`;
     else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w_cm}cm linear) - Lote c/ ${calcData.qty} unid.`;
@@ -730,7 +829,7 @@ function confirmModalCart() {
         id: currentProduct.id + '-' + Date.now(), 
         name: `${currentProduct.name} ${sizeStr} ${detailsStr}`,
         category: currentProduct.category,
-        basePrice: calcData.finalPrice, // O preço já vai sendo o total desse lote
+        basePrice: calcData.finalPrice, 
         image: currentProduct.image
     };
 
