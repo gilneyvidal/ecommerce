@@ -1,0 +1,395 @@
+olá vou colocar a seguir os produtos que é para ter no site, ok
+
+
+
+vou listar direto todos, eu quero cada um com um card, e na página do produto deve ter os botões que servem para especificar os itens.
+
+
+
+PADRÃO PARA TODOS ITENS:
+um botão para contratação de criação da arte, adiciona R$40,00 ou se a pessoa já tiver a arte, tem que ser especifica e em PDFx1a (Para garantir uma impressão de alta qualidade no seu material da VIDAL DESIGN SOLUTIONS, recebemos preferencialmente os arquivos em PDFx1a, JPEG ou PNG com alta resolução (DPI alto). Caso esteja em Corel, converta para Bitmap. É importante que as cores estejam em CMYK para melhor fidelidade na impressão e que converta textos em curvas.) obs. NÃO CONFERIMOS ARQUIVOS ENVIADOS, CASO NAO SEJA FEITA A CONTRATAÇÃO DA ARTE.
+
+lembrando que os itens que já tem, pode remover, e deixar somente os que vou listar aqui.
+E posterior vamos incluindo mais.
+
+ITENS:
+°Adesivo Branco Personalizado - m²
+
+O Adesivo Branco oferece alta qualidade, versatilidade e personalização em larga escala, ideal para comunicação visual, rótulos, decoração e sinalização. Disponível em versões fosca ou com brilho, nas qualidades Padrão e Premium.
+
+ Formato: Tamanho Personalizado -
+
+ Cores: Impressão Colorida [SOLVENTE]
+
+ Material: Adesivo Vinil Branco -
+
+ Revestimento: Laminação Opcional -
+
+ Acabamento: Refilado no Tamanho
+
+ Extras: Brilho ou Fosco
+
+ Produção: 2 dias úteis
+
+Selecione o material:
+Fosco
+Brilhante
+
+Qualidade de Impressão:
+Padrão
+Premium (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione o revestimento:
+Sem laminação
+Com laminação (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00] Iremos criar uma arte pra você
+Valor do m²: R$ 50,90
+
+°Adesivo Transparente Brilho Personalizado - m²
+
+O Adesivo Transparente da VIDAL DESIGN SOLUTIONS oferece alta qualidade, versatilidade e personalização em larga escala, ideal para comunicação visual, rótulos, decoração, sinalização e aplicações em superfícies lisas.
+
+ Formato: Tamanho Personalizado -
+
+ Cores: Impressão Colorida [SOLVENTE]
+
+ Material: Adesivo Vinil Transparente -
+
+ Revestimento: Laminação Opcional -
+
+ Acabamento: Refilado no Tamanho
+
+ Extras: Brilhante
+
+ Produção: 2 dia útil
+
+Selecione o material:
+Brilhante
+
+Qualidade de Impressão:
+Padrão
+Premium (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione o revestimento:
+Sem laminação
+Com laminação (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 50,90
+
+°Adesivo Perfurado Personalizado - m²
+
+O Adesivo Perfurado Personalizado da VIDAL DESIGN SOLUTIONS garante impacto visual sem bloquear a visão interna. Ideal para vitrines e vidros, com impressão colorida e ótima aderência.
+
+ Formato: Tamanho Personalizado -
+
+ Cores: Impressão Colorida [SOLVENTE]
+
+ Material: Adesivo Vinil Perfurado -
+
+ Acabamento: Refilado no Tamanho
+
+ Extras: Perfurado
+
+ Produção: 2 dias úteis
+
+Selecione o material:
+Perfurado - Semi brilho
+
+Qualidade de Impressão:
+Padrão
+Premium (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 62,90
+
+°Adesivo Branco Impresso com Recorte - Etiquetas e Rótulos
+
+Adesivo branco com recorte para etiquetas e rótulos personalizados, com cores vibrantes, alta definição e corte preciso. Ideal para embalagens e identificação de produtos.
+
+ Formato: Etiquetas e Rótulos - Corte Especial -
+
+ Cores: Impressão Colorida [SOLVENTE]
+
+ Material: Adesivo Branco -
+
+ Revestimento: Laminação Opcional -
+
+ Acabamento: Corte Especial
+
+ Extras: Brilho ou Fosco
+
+ Produção: 2 dias úteis
+
+Selecione o material:
+Brilho
+Fosco
+
+Qualidade de Impressão:
+Padrão
+premium (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione um formato de entrega:
+Receber em Rolo
+Receber em A3 (se selecionado adiciona R$5,00 por m² ao custo)
+Receber em A4 (se selecionado adiciona R$7,00 por m² ao custo)
+Receber Individual (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma opção:
+Corte acima de 5cm
+Corte abaixo de 5cm (se selecionado adiciona R$5,00 por m² ao custo)
+
+Selecione o revestimento:
+Sem laminação
+Com laminação (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 59,90
+
+°Adesivo Transparente Impresso com Recorte - Etiquetas e Rótulos
+
+
+Adesivo transparente com recorte para rótulos e etiquetas personalizadas. Impressão colorida, brilho ou fosco, com opção de laminação e entrega em rolo, folhas ou unidades individuais.
+
+ Formato: Etiquetas e Rótulos - Corte Especial -
+
+ Cores: Impressão Colorida [SOLVENTE]
+
+ Material: Adesivo Transparente -
+
+ Revestimento: Laminação Opcional -
+
+ Acabamento: Corte Especial
+
+ Extras: Brilho ou Fosco
+
+ Produção: 2 dias úteis
+
+Selecione o material:
+Brilho
+Fosco
+
+Qualidade de Impressão:
+Padrão
+Premium (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione um formato de entrega:
+Receber em Rolo
+Receber em A3 (se selecionado adiciona R$5,00 por m² ao custo)
+Receber em A4 (se selecionado adiciona R$7,00 por m² ao custo)
+Receber Individual (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma opção:
+Corte acima de 5cm
+Corte abaixo de 5cm (se selecionado adiciona R$5,00 por m² ao custo)
+
+Selecione o revestimento:
+Sem laminação
+Com laminação (se selecionado adiciona R$10,00 por m² ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 59,90
+
+°CARTELA A4 - DTF UV
+
+Impressão DTF UV de alta resolução para adesivos com acabamento premium e cores vibrantes. Ideal para personalizar superfícies rígidas como acrílico, metal, vidro, plástico, madeira e outros materiais lisos, com excelente durabilidade.
+
+ Formato: Cartela A4 - 21 x 29 cm
+
+ Cores: Impressão Colorida
+
+ Material: Material em Filme
+
+ Revestimento: Verniz para auto relevo
+
+ Extras: Personalizado com a sua arte e/ou logotipo
+
+ Produção: 2 dias úteis
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor da unidade: R$ 45,90 
+
+°CARTELA A3 - DTF UV
+
+Impressão DTF UV de alta resolução para adesivos com acabamento premium e cores vibrantes. Ideal para personalizar superfícies rígidas como acrílico, metal, vidro, plástico, madeira e outros materiais lisos, com excelente durabilidade.
+
+ Formato: Cartela A3 - 29 x 42 cm
+
+ Cores: Impressão Colorida
+
+ Material: Material em Vinil
+
+ Revestimento: Verniz para auto relevo
+
+ Extras: Personalizado com a sua arte e/ou logotipo
+
+ Produção: 2 dias uteis
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor da unidade: R$ 57,90
+
+°Banner 440g -
+
+Banner em lona 440g fosca ou brilho, impressão digital em alta resolução com cores vibrantes e excelente durabilidade. Acabamento a escolha com ilhós, bastão, cordinha e corte reto com entrega rápida.
+
+ Formato: Você escolhe o tamanho por m²
+
+ Cores: Alta Resolução CMYK - Impressão realizada com tintas ecológicas
+
+ Material: Lona 440g
+
+ Acabamento: Diversos tipos de acabamento
+
+ Extras: Corte reto (refile)
+
+ Produção: 2 dias úteis
+
+Selecione o acabamento:
+
+Bastão, Ponteira, Cordinha
+Bastão, Ponteira, Cordinha + 4 ilhós (se selecionado adiciona R$20,00 por ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 57,99
+
+
+°Faixa Lona 440g -
+
+Faixa em lona 440g sob medida, com impressão digital de alta resolução, cores vibrantes e acabamento em bastão e ilhós. Ideal para qualquer formato, com produção rápida e qualidade profissional.
+
+ Formato: Você escolhe o tamanho por m²
+
+ Cores: Alta Resolução CMYK - Impressão realizada com tintas ecológicas
+
+ Material: Lona 440g
+
+ Acabamento: Diversos tipos de acabamento
+
+ Extras: Corte reto (refile)
+
+ Produção: 3 dias úteis
+
+Selecione o acabamento:
+
+Acabamento de Faixa (madeira)
+Acabamento de Faixa (madeira) + Ilhós (se selecionado adiciona R$20,00 por m² por ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 57,99
+
+°Lona Impressão Digital 440g - Sob Medida
+
+Lona impressa em material de 440g, alta resolução, disponível com brilho ou fosca, com acabamento em Reforço e Ilhós. Cores vibrantes, durabilidade e qualidade profissional para destacar sua marca.
+
+ Formato: Tamanho Personalizado
+
+ Cores: Alta Resolução CMYK - Impressão realizada com tintas ecológicas
+
+ Material: Lona 440g - Fosco
+
+ Acabamento: Diversos tipos de acabamento
+
+ Extras: Corte reto (refile)
+
+ Produção: 3 dias úteis
+
+Selecione o tipo:
+Brilho
+Fosco
+
+Selecione o acabamento:
+Somente impressão
+Apenas com reforço (se selecionado adiciona R$10,00 por m² por ao custo)
+Com reforço e ilhós (se selecionado adiciona R$20,00 por m² por ao custo)
+
+Selecione uma das opções de arte:
+Tenho o arquivo pronto Faça upload da sua arte finalizada
+Contratar criação [+R$ 40,00]
+Valor do m²: R$ 57,99
+
+
+*OBS...
+Tudo que for por metro quadrado, você deve inserir a calculadora de preço, seguindo os moldes já pré existentes com o calculo de mínimo e tudo mais
+
+agora mais itens.
+
+
+°toldo retrátil | toldo cortina retrátil
+
+material feito com tubo galvanizado parede 1.20 peças e juntas em alumínio, lona 440gr cores diversas acabamento com barra plástica transparente.
+
+selecione a cor:
+preto
+azul
+verde
+amarelo
+cinza
+outros (caso selecionado deixar um campo para consulta)
+
+instalação:
+contratar (se selecionado, solicitar foto do local, altura da instalação e local cidade, bairro, rua)
+
+projeção padrão 1 metro
+outro
+
+Valor do metro linear: R$ 450,00
+
+
+°toldo fixo
+material feito com tubo galvanizado parede 1.20, lona 440gr cores diversas acabamento com barra plástica transparente.
+
+selecione a cor:
+preto
+azul
+verde
+amarelo
+cinza
+outros (caso selecionado deixar um campo para consulta)
+
+instalação:
+contratar (se selecionado, solicitar foto do local, altura da instalação e local cidade, bairro, rua)
+
+projeção padrão 1 metro
+outro
+
+Valor do metro linear: R$ 450,00
+
+°pacote de artes
+
+criação de mídia digital post, story, feed
+
+pacote com 10 artes
+R$350,00
+
+pacote com 20 artes
+R$600,00
+
+pacote mensal (incluso 3 storys por semana, 3 posts por semana, 3 artes promocionais por mes) total de 27 artes no mes
+R$1000,00
+
+pacote trimestral CONTRATO (incluso 3 storys por semana, 3 posts por semana, 3 artes promocionais por mes) total de 27 artes no mes
+R$900,00 POR MÊS
+
+
+depois de criar tudo, me de a lista dos nomes que devo colocar nos arquivos de imagem para cada item
+
+
