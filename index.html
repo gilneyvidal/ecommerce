@@ -189,7 +189,7 @@
             <div class="about-content">
                 <div class="about-image" style="position: relative; overflow: hidden; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);">
                     <img id="aboutSlider" src="assets/images/sobre-1.jpg" alt="Estrutura Vidal Design Solutions" 
-                         style="width: 100%; height: 100%; min-height: 400px; object-fit: cover; transition: opacity 0.5s ease-in-out; background-color: var(--primary);" 
+                         style="width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; transition: opacity 0.5s ease-in-out; background-color: var(--primary); display: block;" 
                          onerror="this.src='https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Adicione+sobre-1.jpg'">
                 </div>
                 
@@ -326,7 +326,6 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Lista atualizada com as 10 imagens
             const imagens = [
                 'assets/images/sobre-1.jpg',
                 'assets/images/sobre-2.jpg',
@@ -345,13 +344,13 @@
             
             if (imgEl && imagens.length > 0) {
                 setInterval(() => {
-                    imgEl.style.opacity = '0.2'; // Efeito de esmaecer
+                    imgEl.style.opacity = '0.2'; 
                     setTimeout(() => {
                         i = (i + 1) % imagens.length;
                         imgEl.src = imagens[i];
                         imgEl.style.opacity = '1';
                     }, 500);
-                }, 4000); // 4 segundos
+                }, 4000); 
             }
         });
 
