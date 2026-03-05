@@ -183,39 +183,21 @@
                     <span class="category-count">Ver produtos</span>
                 </div>
                 
-                <div class="category-card" onclick="filterByCategory('sinalizacao')">
-                    <div class="category-icon">
-                        <i class="fas fa-sign"></i>
-                    </div>
-                    <h3>Sinalização</h3>
-                    <p>Placas, letreiros, totens, displays</p>
-                    <span class="category-count">Ver produtos</span>
-                </div>
-                
-                <div class="category-card" onclick="filterByCategory('toldos')">
-                    <div class="category-icon">
-                        <i class="fas fa-umbrella"></i>
-                    </div>
-                    <h3>Toldos</h3>
-                    <p>Toldos fixos, retráteis, coberturas</p>
-                    <span class="category-count">Ver produtos</span>
-                </div>
-                
-                <div class="category-card" onclick="filterByCategory('fachadas')">
-                    <div class="category-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Fachadas</h3>
-                    <p>ACM, letra caixa, luminosos</p>
-                    <span class="category-count">Ver produtos</span>
-                </div>
-                
                 <div class="category-card" onclick="filterByCategory('papelaria')">
                     <div class="category-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Papelaria</h3>
-                    <p>Cartões, flyers, folhetos, envelopes</p>
+                    <p>Cartões, flyers, folhetos</p>
+                    <span class="category-count">Ver produtos</span>
+                </div>
+
+                <div class="category-card" onclick="filterByCategory('automotivo')">
+                    <div class="category-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Linha Automotiva</h3>
+                    <p>Aromatizantes, lixocar, limpeza</p>
                     <span class="category-count">Ver produtos</span>
                 </div>
 
@@ -227,7 +209,7 @@
                     <p>Camisetas Dry Fit, moletons</p>
                     <span class="category-count">Ver produtos</span>
                 </div>
-
+                
                 <div class="category-card" onclick="filterByCategory('social mídia')">
                     <div class="category-icon">
                         <i class="fas fa-share-alt"></i>
@@ -245,16 +227,15 @@
             <div class="section-header">
                 <span class="section-tag">Catálogo 2026</span>
                 <h2 class="section-title">Produtos em Destaque</h2>
-                <p class="section-subtitle">Clique para ver detalhes e configurar seu orçamento</p>
+                <p class="section-subtitle">Clique para ver detalhes e adicionar ao carrinho</p>
             </div>
             
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Todos</button>
                 <button class="filter-btn" data-filter="adesivos">Adesivos</button>
                 <button class="filter-btn" data-filter="banners">Banners</button>
-                <button class="filter-btn" data-filter="sinalizacao">Sinalização</button>
-                <button class="filter-btn" data-filter="toldos">Toldos</button>
                 <button class="filter-btn" data-filter="papelaria">Papelaria</button>
+                <button class="filter-btn" data-filter="automotivo">Automotivo</button>
                 <button class="filter-btn" data-filter="vestuario">Vestuário</button>
                 <button class="filter-btn" data-filter="social mídia">Social Mídia</button>
             </div>
@@ -422,9 +403,9 @@
                     <ul>
                         <li><a href="#" onclick="filterByCategory('adesivos'); return false;">Adesivos</a></li>
                         <li><a href="#" onclick="filterByCategory('banners'); return false;">Banners e Lonas</a></li>
+                        <li><a href="#" onclick="filterByCategory('automotivo'); return false;">Automotivo</a></li>
                         <li><a href="#" onclick="filterByCategory('papelaria'); return false;">Papelaria</a></li>
                         <li><a href="#" onclick="filterByCategory('vestuario'); return false;">Vestuário</a></li>
-                        <li><a href="#" onclick="filterByCategory('sinalizacao'); return false;">Sinalização</a></li>
                     </ul>
                 </div>
                 
