@@ -5,31 +5,25 @@
 // Recupera o carrinho salvo na memória do navegador
 let cart = JSON.parse(localStorage.getItem('vidalCart')) || [];
 
-// Salva as alterações na memória
 function saveCart() {
     localStorage.setItem('vidalCart', JSON.stringify(cart));
 }
 
-// Atualiza a bolinha vermelha de contagem de itens em todas as páginas
 function updateCartCount() {
     const countElements = document.querySelectorAll('#cartCount, #cartItemCount');
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
     countElements.forEach(el => {
         el.textContent = totalItems;
-        // Se for o badge da página do carrinho, adiciona a palavra "itens"
         if (el.id === 'cartItemCount') {
             el.textContent = `${totalItems} item(ns)`;
         }
     });
 }
 
-// Adiciona um novo item ao carrinho (chamado pelo products.js)
 function addToCart(product) {
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
-    // Como os IDs agora são únicos (gerados por Date.now() no products.js), 
-    // ele sempre vai adicionar uma linha nova, garantindo que artes diferentes não se misturem
     if (existingItemIndex > -1) {
         cart[existingItemIndex].quantity += 1;
     } else {
@@ -43,10 +37,8 @@ function addToCart(product) {
     saveCart();
     updateCartCount();
     
-    // Feedback visual rápido pro usuário
-    alert(`${product.name.split(' |')[0]} foi adicionado ao seu orçamento!`);
+    alert(`${product.name.split(' |')[0]} foi adicionado ao seu carrinho!`);
     
-    // Rastreamento Analytics (se houver tag instalada)
     if (typeof gtag !== 'undefined') {
         gtag('event', 'add_to_cart', {
             'event_category': 'ecommerce',
@@ -55,24 +47,21 @@ function addToCart(product) {
     }
 }
 
-// Remove um item completamente (chamado pelo botão da lixeira)
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
     saveCart();
     updateCartCount();
     
-    // Se estivermos na página do carrinho, re-renderiza a lista para o item sumir da tela
     if (typeof renderCartPage === 'function') {
         renderCartPage();
     }
 }
 
-// Altera a quantidade de um item específico
 function updateQuantity(productId, quantity) {
     const item = cart.find(item => item.id === productId);
     if (item) {
         item.quantity = parseInt(quantity);
-        if(item.quantity < 1) item.quantity = 1; // Não permite zero ou número negativo
+        if(item.quantity < 1) item.quantity = 1; 
         
         saveCart();
         updateCartCount();
@@ -83,36 +72,59 @@ function updateQuantity(productId, quantity) {
     }
 }
 
-// Formata moeda para a lista do WhatsApp
 function formatCurrencyCart(value) {
     return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
 }
 
-// Gera o texto estruturado que será enviado no WhatsApp
+// NOVA FUNÇÃO: Gera a mensagem estruturada exatamente no seu molde
 function generateWhatsAppMessage() {
     if (cart.length === 0) return '';
     
-    let message = 'Olá, Gilney! Vim pelo site e gostaria de fazer o orçamento dos seguintes itens:\n\n';
+    // Verifica se a chave de Cliente Final (+30%) está ativada no carrinho
+    const typeSelect = document.getElementById('customerType');
+    const isRetail = typeSelect ? typeSelect.value === 'retail' : true;
+    const markupMultiplier = isRetail ? 1.30 : 1.0; // Adiciona 30% se for Varejo
+    
+    let message = '*Orçamento* 🖨️\n\n';
     
     let totalCart = 0;
     
-    cart.forEach((item, index) => {
-        let itemTotal = item.basePrice * item.quantity;
+    cart.forEach((item) => {
+        // Aplica o markup de 30% em cima do valor base que veio do products.js
+        let itemTotal = item.basePrice * markupMultiplier;
         totalCart += itemTotal;
         
-        message += `*Item ${index + 1}:* ${item.name}\n`;
-        message += `Quantidade: ${item.quantity}\n`;
-        message += `Valor ref. total da peça: ${formatCurrencyCart(itemTotal)}\n\n`;
+        message += `🔹 *${item.name}*\n`;
+        message += `${item.quantity} unidade(s) / lote(s)\n`;
+        // Exibe o valor sem a sigla R$ duplicada
+        message += `R$ ${formatCurrencyCart(itemTotal).replace('R$', '').trim()}\n\n`;
     });
     
-    message += `*Estimativa Base Final:* ${formatCurrencyCart(totalCart)}\n\n`;
-    message += 'Aguardo o seu retorno para análise técnica e fechamento do pedido. Obrigado!';
+    // Adiciona o total da compra para facilitar a visualização
+    message += `💰 *Total Estimado: ${formatCurrencyCart(totalCart)}*\n\n`;
     
-    // Transforma o texto em um formato de URL seguro para o navegador
+    // Textos fixos de prazo e pagamento
+    message += `🚀 *Prazo de Produção*\n`;
+    message += `🔸 Até 3 dias úteis após aprovação da arte e confirmação do pagamento.\n\n`;
+    
+    message += `💳 *Formas de Pagamento Flexíveis* 💳\n\n`;
+    message += `🔹 Parcelamento: Em até 3x no Cartão de Crédito (juros por conta do cliente).\n`;
+    message += `🔹 Desconto Especial: 5% de desconto para pagamento à vista em Dinheiro ou PIX.\n\n`;
+    
+    message += `🎁 *Promoção Exclusiva – Avalie e Ganhe!* 🎁\n`;
+    message += `⭐ Avalie nosso serviço com 5 estrelas e ganhe +5% de desconto na sua compra! (Somente para pagamento à vista no PIX)\n`;
+    message += `👉 Avalie aqui: https://g.page/r/CXNPrWMbM0IZEBM/review\n\n`;
+    
+    message += `📆 *Validade do Orçamento*\n`;
+    message += `Este orçamento é válido por 5 dias úteis.\n\n`;
+    
+    message += `📞 *Fale com a Gente!*\n`;
+    message += `🔸 Gilney: 📱 (11) 96864-9673\n`;
+    message += `🔸 Elisete: 📱 (11) 94914-1803`;
+    
     return encodeURIComponent(message);
 }
 
-// A função mestre que é ativada no clique do botão verde do carrinho
 function sendCartViaWhatsApp() {
     if (cart.length === 0) {
         alert('Sua lista de orçamento está vazia!');
@@ -120,10 +132,9 @@ function sendCartViaWhatsApp() {
     }
     
     const message = generateWhatsAppMessage();
-    const phone = '5511968649673'; // O seu número principal do rodapé
+    const phone = '5511968649673'; 
     const url = `https://wa.me/${phone}?text=${message}`;
     
-    // Rastreio de conversão
     if (typeof gtag !== 'undefined') {
         gtag('event', 'begin_checkout', {
             'event_category': 'conversion',
@@ -131,10 +142,8 @@ function sendCartViaWhatsApp() {
         });
     }
     
-    // AQUI ESTÁ A CORREÇÃO: Abre a página do WhatsApp numa nova guia
     window.open(url, '_blank');
     
-    // Aguarda 2 segundos e pergunta se o usuário quer limpar a lista
     setTimeout(() => {
         if(confirm("Deseja esvaziar sua lista de orçamento agora que o pedido foi enviado?")) {
             cart = [];
@@ -147,7 +156,6 @@ function sendCartViaWhatsApp() {
     }, 2000);
 }
 
-// Inicializa o carrinho sempre que uma página termina de carregar
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
 });
