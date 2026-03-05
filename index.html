@@ -314,11 +314,11 @@
     <section class="about" id="sobre">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <i class="fas fa-store"></i>
-                        <span>FOTO DA LOJA/EQUIPE</span>
-                    </div>
+                <div class="about-image" style="position: relative; overflow: hidden;">
+                    <img id="aboutSlider" src="assets/images/sobre-1.jpg" alt="Equipe e Estrutura Vidal Design Solutions" 
+                         style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl); transition: opacity 0.5s ease-in-out; background-color: var(--primary);" 
+                         onerror="this.src='https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Adicione+as+fotos+sobre-X.jpg'">
+                    
                     <div class="about-badge">
                         <span class="badge-number">18+</span>
                         <span class="badge-text">Anos de<br>Experiência</span>
@@ -475,6 +475,39 @@
                 }
             });
         }
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // NOME DAS IMAGENS: 
+            // Criei a lista para 5 imagens, mas se você criar 10 fotos, 
+            // basta adicionar a vírgula e a nova linha: ,'assets/images/sobre-6.jpg'
+            const sobreImagens = [
+                'assets/images/sobre-1.jpg',
+                'assets/images/sobre-2.jpg',
+                'assets/images/sobre-3.jpg',
+                'assets/images/sobre-4.jpg',
+                'assets/images/sobre-5.jpg'
+            ];
+            
+            let slideIndex = 0;
+            const sliderEl = document.getElementById('aboutSlider');
+            
+            if (sliderEl && sobreImagens.length > 0) {
+                setInterval(() => {
+                    // 1. Apaga a foto atual (transição suave ativada no HTML)
+                    sliderEl.style.opacity = '0.1';
+                    
+                    // 2. Espera meio segundo e troca a foto
+                    setTimeout(() => {
+                        slideIndex = (slideIndex + 1) % sobreImagens.length;
+                        sliderEl.src = sobreImagens[slideIndex];
+                        // 3. Acende a nova foto
+                        sliderEl.style.opacity = '1';
+                    }, 500); 
+                }, 4000); // Executa a cada 4000 milissegundos (4 segundos)
+            }
+        });
     </script>
 </body>
 </html>
