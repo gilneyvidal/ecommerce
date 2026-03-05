@@ -93,7 +93,7 @@
                         <span class="cart-count" id="cartCount">0</span>
                     </a>
                     <a href="https://wa.me/5511968649673?text=Olá! Vim pelo site e gostaria de fazer um orçamento." 
-                       class="whatsapp-btn" target="_blank" id="whatsappHeader">
+                       class="whatsapp-btn" target="_blank">
                         <i class="fab fa-whatsapp"></i>
                         <span class="btn-text">Orçamento</span>
                     </a>
@@ -129,23 +129,9 @@
                             Falar no WhatsApp
                         </a>
                     </div>
-                    <div class="hero-features">
-                        <div class="feature-item">
-                            <i class="fas fa-truck-fast"></i>
-                            <span>Entrega Rápida</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-medal"></i>
-                            <span>Qualidade Premium</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-headset"></i>
-                            <span>Atendimento Personalizado</span>
-                        </div>
-                    </div>
                 </div>
                 <div class="hero-image">
-                    <img src="assets/images/produtos/imagem-hero.jpg" alt="Vidal Design Solutions - Produto em Destaque" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);" onerror="this.src='https://via.placeholder.com/600x450/1e3a8a/ffffff?text=Adicione+imagem-hero.jpg'">
+                    <img src="assets/images/produtos/imagem-hero.jpg" alt="Vidal Design Solutions" style="width: 100%; height: auto; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);" onerror="this.src='https://via.placeholder.com/600x450/1e3a8a/ffffff?text=Adicione+imagem-hero.jpg'">
                 </div>
             </div>
         </div>
@@ -161,62 +147,28 @@
             <div class="section-header">
                 <span class="section-tag">Nossas Especialidades</span>
                 <h2 class="section-title">Categorias em Destaque</h2>
-                <p class="section-subtitle">Soluções completas para sua comunicação visual</p>
             </div>
             
             <div class="categories-grid">
                 <div class="category-card" onclick="filterByCategory('adesivos')">
-                    <div class="category-icon">
-                        <i class="fas fa-sticky-note"></i>
-                    </div>
+                    <div class="category-icon"><i class="fas fa-sticky-note"></i></div>
                     <h3>Adesivos</h3>
-                    <p>Recorte, impressão, vinil, perfurado</p>
                     <span class="category-count">Ver produtos</span>
                 </div>
-                
                 <div class="category-card" onclick="filterByCategory('banners')">
-                    <div class="category-icon">
-                        <i class="fas fa-scroll"></i>
-                    </div>
+                    <div class="category-icon"><i class="fas fa-scroll"></i></div>
                     <h3>Banners e Lonas</h3>
-                    <p>Banners, lonas, faixas, wind banners</p>
                     <span class="category-count">Ver produtos</span>
                 </div>
-                
                 <div class="category-card" onclick="filterByCategory('papelaria')">
-                    <div class="category-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
+                    <div class="category-icon"><i class="fas fa-file-alt"></i></div>
                     <h3>Papelaria</h3>
-                    <p>Cartões, flyers, folhetos</p>
                     <span class="category-count">Ver produtos</span>
                 </div>
-
                 <div class="category-card" onclick="filterByCategory('automotivo')">
-                    <div class="category-icon">
-                        <i class="fas fa-car"></i>
-                    </div>
-                    <h3>Linha Automotiva</h3>
-                    <p>Aromatizantes, lixocar, limpeza</p>
+                    <div class="category-icon"><i class="fas fa-car"></i></div>
+                    <h3>Automotivo</h3>
                     <span class="category-count">Ver produtos</span>
-                </div>
-
-                <div class="category-card" onclick="filterByCategory('vestuario')">
-                    <div class="category-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Vestuário</h3>
-                    <p>Camisetas Dry Fit, moletons</p>
-                    <span class="category-count">Ver produtos</span>
-                </div>
-                
-                <div class="category-card" onclick="filterByCategory('social mídia')">
-                    <div class="category-icon">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h3>Social Mídia</h3>
-                    <p>Criação de artes para redes sociais</p>
-                    <span class="category-count">Ver pacotes</span>
                 </div>
             </div>
         </div>
@@ -226,131 +178,43 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Catálogo 2026</span>
-                <h2 class="section-title">Produtos em Destaque</h2>
-                <p class="section-subtitle">Clique para ver detalhes e adicionar ao carrinho</p>
+                <h2 class="section-title">Nossos Produtos</h2>
             </div>
-            
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="adesivos">Adesivos</button>
-                <button class="filter-btn" data-filter="banners">Banners</button>
-                <button class="filter-btn" data-filter="papelaria">Papelaria</button>
-                <button class="filter-btn" data-filter="automotivo">Automotivo</button>
-                <button class="filter-btn" data-filter="vestuario">Vestuário</button>
-                <button class="filter-btn" data-filter="social mídia">Social Mídia</button>
-            </div>
-            
-            <div class="products-grid" id="productsGrid">
-                </div>
-            
-            <div class="products-footer">
-                <a href="#contato" class="btn btn-outline">
-                    Fale Conosco
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="process" id="como-funciona">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Processo Simples</span>
-                <h2 class="section-title">Como Funciona</h2>
-            </div>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <i class="fas fa-mouse-pointer"></i>
-                    </div>
-                    <h3>Escolha o Produto</h3>
-                    <p>Navegue pelo catálogo e configure as medidas exatas na calculadora</p>
-                </div>
-                
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <i class="fas fa-file-upload"></i>
-                    </div>
-                    <h3>Detalhes da Arte</h3>
-                    <p>Selecione se já possui a arte pronta (PDFx1a) ou se deseja contratar a criação</p>
-                </div>
-                
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>Receba o Orçamento</h3>
-                    <p>Revise seu carrinho e envie o pedido estruturado direto para nosso WhatsApp</p>
-                </div>
-                
-                <div class="process-arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Aprovação e Produção</h3>
-                    <p>Após nossa análise técnica e aprovação final, iniciamos a produção rápida</p>
-                </div>
-            </div>
+            <div class="products-grid" id="productsGrid"></div>
         </div>
     </section>
 
     <section class="about" id="sobre">
         <div class="container">
             <div class="about-content">
-                <div class="about-image" style="position: relative; overflow: hidden;">
-                    <img id="aboutSlider" src="assets/images/sobre-1.jpg" alt="Equipe e Estrutura Vidal Design Solutions" 
-                         style="width: 100%; height: 100%; min-height: 380px; object-fit: cover; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl); transition: opacity 0.5s ease-in-out; background-color: var(--primary);" 
-                         onerror="this.src='https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Adicione+as+fotos+sobre-X.jpg'">
-                    
-                    <div class="about-badge">
-                        <span class="badge-number">18+</span>
-                        <span class="badge-text">Anos de<br>Experiência</span>
-                    </div>
+                <div class="about-image" style="position: relative; overflow: hidden; border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl);">
+                    <img id="aboutSlider" src="assets/images/sobre-1.jpg" alt="Estrutura Vidal Design Solutions" 
+                         style="width: 100%; height: 100%; min-height: 400px; object-fit: cover; transition: opacity 0.5s ease-in-out; background-color: var(--primary);" 
+                         onerror="this.src='https://via.placeholder.com/800x600/1e3a8a/ffffff?text=Adicione+sobre-1.jpg'">
                 </div>
                 
                 <div class="about-text">
                     <span class="section-tag">Sobre Nós</span>
                     <h2 class="section-title">Vidal Design Solutions</h2>
                     <p class="about-description">
-                        Fundada em 2007 por <strong>Gilney Vidal</strong> e <strong>Elizete Vidal</strong>, a Vidal Design Solutions 
-                        nasceu da paixão por transformar ideias em realidade visual. Com mais de 18 anos no mercado, 
-                        nos especializamos em materiais gráficos, sinalização, toldos, fachadas e social mídia.
+                        Com mais de <strong>18 anos de experiência</strong> no mercado de comunicação visual, a Vidal Design Solutions foi fundada em 2007 por Gilney e Elizete Vidal. Nossa trajetória é marcada pelo compromisso com a qualidade e a satisfação de milhares de clientes.
                     </p>
                     <p class="about-description">
-                        Nossa missão é oferecer produtos de alta qualidade com atendimento personalizado, 
-                        entendendo que cada cliente tem necessidades únicas. Trabalhamos com os melhores 
-                        fornecedores e tecnologia de ponta para garantir resultados excepcionais.
+                        Contamos com estrutura própria para produção de adesivos, banners, fachadas e sinalização, garantindo controle total sobre o prazo e o acabamento de cada peça que sai de nossa oficina.
                     </p>
                     
                     <div class="about-stats">
                         <div class="stat-item">
                             <span class="stat-number">150+</span>
-                            <span class="stat-label">Tipos de Produtos</span>
+                            <span class="stat-label">Produtos</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">5000+</span>
-                            <span class="stat-label">Clientes Atendidos</span>
+                            <span class="stat-number">18+</span>
+                            <span class="stat-label">Anos de História</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number" style="color: var(--secondary);"><i class="fas fa-heart"></i></span>
-                            <span class="stat-label" style="font-weight: 700; text-transform: uppercase;">Empresa Familiar</span>
+                            <span class="stat-label">Empresa Familiar</span>
                         </div>
                     </div>
                 </div>
@@ -363,99 +227,26 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo-footer">
-                        <img src="logo.png" alt="Vidal Design Solutions - Logo">
+                        <img src="logo.png" alt="Vidal Design Solutions">
                     </div>
-                    <p class="footer-description">
-                        Soluções completas em comunicação visual desde 2007. 
-                        Qualidade, agilidade e atendimento personalizado.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://www.facebook.com/share/1BqrEs4rEr/" target="_blank" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://www.instagram.com/vidaldesignsolutions?igsh=MTYxbTgxazY5ZzI1OQ==" target="_blank" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    
-                    <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; max-width: 250px;">
-                        <a href="https://photos.app.goo.gl/HiRZfa4eNnUpwyca7" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); color: white; font-size: 0.85rem; transition: background 0.3s; text-decoration: none;">
-                            <i class="fas fa-images" style="color: var(--accent);"></i> Nosso Álbum de Fotos
-                        </a>
-                        <a href="https://g.page/r/CXNPrWMbM0IZEBM/review" target="_blank" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; background: rgba(255,255,255,0.1); border-radius: var(--radius-md); color: white; font-size: 0.85rem; transition: background 0.3s; text-decoration: none;">
-                            <i class="fas fa-star" style="color: var(--accent);"></i> Avalie-nos no Google
-                        </a>
-                    </div>
+                    <p>Qualidade e agilidade em comunicação visual desde 2007.</p>
                 </div>
-                
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#produtos">Produtos</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Categorias</h4>
-                    <ul>
-                        <li><a href="#" onclick="filterByCategory('adesivos'); return false;">Adesivos</a></li>
-                        <li><a href="#" onclick="filterByCategory('banners'); return false;">Banners e Lonas</a></li>
-                        <li><a href="#" onclick="filterByCategory('automotivo'); return false;">Automotivo</a></li>
-                        <li><a href="#" onclick="filterByCategory('papelaria'); return false;">Papelaria</a></li>
-                        <li><a href="#" onclick="filterByCategory('vestuario'); return false;">Vestuário</a></li>
-                    </ul>
-                </div>
-                
                 <div class="footer-contact">
                     <h4>Contato</h4>
                     <ul class="contact-list">
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <span>WhatsApp (Gilney)</span>
-                                <a href="https://wa.me/5511968649673" target="_blank">(11) 96864-9673</a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <span>WhatsApp (Elisete)</span>
-                                <a href="https://wa.me/5511949141803" target="_blank">(11) 94914-1803</a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <span>Email</span>
-                                <a href="mailto:vidaldesignsolutions@gmail.com">vidaldesignsolutions@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <span>Endereço</span>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Rua+Antonio+Cordeiro,+57+-+São+João+-+Mogi+das+Cruzes+SP" target="_blank" style="line-height: 1.4; display: inline-block;">
-                                    Rua Antonio Cordeiro, 57<br>São João - Mogi das Cruzes, SP
-                                </a>
-                            </div>
-                        </li>
+                        <li><i class="fab fa-whatsapp"></i> (11) 96864-9673</li>
+                        <li><i class="fas fa-envelope"></i> vidaldesignsolutions@gmail.com</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
                 <p>© 2026 Vidal Design Solutions. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/5511968649673?text=Olá! Vim pelo site e gostaria de fazer um orçamento." 
-       class="whatsapp-float" target="_blank" id="whatsappFloat">
+    <a href="https://wa.me/5511968649673" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
     </a>
 
     <script src="assets/js/main.js"></script>
@@ -463,26 +254,9 @@
     <script src="assets/js/cart.js"></script>
     
     <script>
-        function filterByCategory(category) {
-            document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
-            window.dispatchEvent(new CustomEvent('filterProducts', { 
-                detail: { category: category } 
-            }));
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-filter') === category) {
-                    btn.classList.add('active');
-                }
-            });
-        }
-    </script>
-    
-    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // NOME DAS IMAGENS: 
-            // Criei a lista para 5 imagens, mas se você criar 10 fotos, 
-            // basta adicionar a vírgula e a nova linha: ,'assets/images/sobre-6.jpg'
-            const sobreImagens = [
+            // Nomes das imagens que você vai colocar na pasta assets/images/
+            const imagens = [
                 'assets/images/sobre-1.jpg',
                 'assets/images/sobre-2.jpg',
                 'assets/images/sobre-3.jpg',
@@ -490,24 +264,25 @@
                 'assets/images/sobre-5.jpg'
             ];
             
-            let slideIndex = 0;
-            const sliderEl = document.getElementById('aboutSlider');
+            let i = 0;
+            const imgEl = document.getElementById('aboutSlider');
             
-            if (sliderEl && sobreImagens.length > 0) {
+            if (imgEl && imagens.length > 0) {
                 setInterval(() => {
-                    // 1. Apaga a foto atual (transição suave ativada no HTML)
-                    sliderEl.style.opacity = '0.1';
-                    
-                    // 2. Espera meio segundo e troca a foto
+                    imgEl.style.opacity = '0.2'; // Efeito de esmaecer
                     setTimeout(() => {
-                        slideIndex = (slideIndex + 1) % sobreImagens.length;
-                        sliderEl.src = sobreImagens[slideIndex];
-                        // 3. Acende a nova foto
-                        sliderEl.style.opacity = '1';
-                    }, 500); 
-                }, 4000); // Executa a cada 4000 milissegundos (4 segundos)
+                        i = (i + 1) % imagens.length;
+                        imgEl.src = imagens[i];
+                        imgEl.style.opacity = '1';
+                    }, 500);
+                }, 4000); // 4 segundos
             }
         });
+
+        function filterByCategory(cat) {
+            document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+            window.dispatchEvent(new CustomEvent('filterProducts', { detail: { category: cat } }));
+        }
     </script>
 </body>
 </html>
