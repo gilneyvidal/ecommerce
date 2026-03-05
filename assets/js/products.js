@@ -184,7 +184,7 @@ const productsData = [
         id: 'prod-pacote-artes',
         name: 'Pacote de Artes - Redes Sociais',
         category: 'social mídia',
-        description: 'Criação de mídia digital para post, story e feed. Escolha entre pacotes avulsos ou contratos mensais e trimestrais para manter sua rede social sempre atualizada e profissional.',
+        description: 'Criação de mídia digital para post, story e feed. Escolha entre pacotes avulsos ou contratos mensais e trimestrais (exclusivo em até 3x) para manter sua rede social sempre atualizada e profissional.',
         calcType: 'variant', // Escolha direta do valor
         basePrice: 0,
         image: 'assets/images/produtos/pacote-artes.jpg',
@@ -193,7 +193,7 @@ const productsData = [
                 {label: 'Pacote com 10 Artes', price: 350, isM2: false}, 
                 {label: 'Pacote com 20 Artes', price: 600, isM2: false}, 
                 {label: 'Pacote Mensal - 27 artes/mês', price: 1000, isM2: false}, 
-                {label: 'Pacote Trimestral - 27 artes/mês', price: 900, isM2: false}
+                {label: 'Pacote Trimestral - 27 artes/mês (em até 3x)', price: 2675.97, isM2: false}
             ] }
         ]
     }
@@ -248,7 +248,7 @@ function renderProducts(productsToRender) {
                         <span class="price-value">${displayPrice} <span style="font-size: 0.7em;">${priceUnit}</span></span>
                     </div>
                     <button class="product-btn config-btn" data-id="${product.id}">
-                        <i class="fas fa-cog"></i> Configurar
+                        <i class="fas fa-shopping-bag"></i> Comprar
                     </button>
                 </div>
             </div>
@@ -345,7 +345,7 @@ function openModal(productId) {
 
         <div class="modal-footer">
             <div class="modal-total">Total do Lote: <span id="modalTotalPrice">R$ 0,00</span></div>
-            <button class="btn btn-primary" onclick="confirmModalCart()">Adicionar ao Orçamento</button>
+            <button class="btn btn-primary" onclick="confirmModalCart()">Adicionar ao Carrinho</button>
         </div>
     `;
     
@@ -420,11 +420,15 @@ function calcTotal() {
 
     let finalPrice = 0;
     
+    // Matemática final blindada
     if (currentProduct.calcType === 'variant') {
+        // Se for um pacote de artes (variantes de preço fixo que substituem a base)
         finalPrice = (extraFlatPerPiece * qty) + extraFlatPerJob; 
     } else if (multiplier === 0 && currentProduct.calcType !== 'unit' && currentProduct.calcType !== 'variant') {
+        // Cliente ainda não preencheu largura/altura
         finalPrice = 0; 
     } else {
+        // Preço Base do Lote + Adicionais de M² + Adicionais por Peça + Adicionais por Lote (Arte)
         finalPrice = (base * multiplier) + (extraM2 * multiplier) + (extraFlatPerPiece * qty) + extraFlatPerJob;
     }
 
@@ -437,8 +441,9 @@ function calcTotal() {
 function confirmModalCart() {
     const calcData = calcTotal();
     
+    // Proteção dupla para obrigar a preencher as medidas
     if ((currentProduct.calcType === 'area' || currentProduct.calcType === 'linear') && (calcData.w_cm === 0 || (currentProduct.calcType === 'area' && calcData.h_cm === 0))) {
-        alert("Por favor, preencha as medidas do seu material antes de adicionar ao orçamento.");
+        alert("Por favor, preencha as medidas do seu material antes de adicionar ao carrinho.");
         return;
     }
     
@@ -453,6 +458,7 @@ function confirmModalCart() {
         detailsStr += ` | ${opt.choices[selectedIndex].label}`;
     });
 
+    // Registra a quantidade informada no título do item do carrinho para o Whats
     let sizeStr = '';
     if(currentProduct.calcType === 'area') sizeStr = `(${calcData.w_cm}cm x ${calcData.h_cm}cm) - Lote c/ ${calcData.qty} unid.`;
     else if(currentProduct.calcType === 'linear') sizeStr = `(${calcData.w_cm}cm linear) - Lote c/ ${calcData.qty} unid.`;
@@ -462,7 +468,7 @@ function confirmModalCart() {
         id: currentProduct.id + '-' + Date.now(), 
         name: `${currentProduct.name} ${sizeStr} ${detailsStr}`,
         category: currentProduct.category,
-        basePrice: calcData.finalPrice, 
+        basePrice: calcData.finalPrice, // O preço já vai sendo o total desse lote
         image: currentProduct.image
     };
 
